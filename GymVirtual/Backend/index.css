@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+.Todo {
+  background-color: black;
+  min-height: 100vh;
+  width: 100%;
+}
+.GymVirtual {
+  color: black;
+  text-align: center;
+  background-color: white;
+  font-size: 25px;
+}
+.ant-form-item-label > label {
+  color: white;
+}
+.ant-input-password {
+  width: 80%;
+  margin-left: 7%;
+  border-radius: 15px;
+}
+.ant-checkbox-wrapper {
+  color: white;
+}
+
+.login {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+}
+
+.Usuario {
+  margin-top: 60px;
+  margin-left: 35px;
+  color: white;
+  font-size: 20px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  color: aqua;
+  width: 120px;
+}
+
+.ant-input {
+  width: 80%;
+  margin-left: 7%;
+  border-radius: 15px;
+}
