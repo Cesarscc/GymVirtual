@@ -1,0 +1,40 @@
+.niveles{
+    border: 1px solid white;
+    
+}
+
+.basico{
+    background-color: #FBD348;
+    border: 1px solid white;
+    font-size:40px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 70px;
+}
+
+.intermedio{
+    background-color: #FC683A;
+    border: 1px solid white;
+    font-size:40px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 70px;
+}
+  
+.avanzado{
+    background-color: #EB4343;
+    border: 1px solid white;
+    font-size:40px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 70px;
+}
+
+.personalizado{
+    background-color: #0077E4;
+    border: 1px solid white;
+    font-size:40px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 70px;
+}
