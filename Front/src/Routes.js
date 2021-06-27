@@ -9,6 +9,7 @@ import Login from "./Componentes/Login";
 import Ranking from "./Componentes/Ranking";
 import Dashboard from "./Componentes/Dashboard";
 import Niveles from "./Componentes/Niveles";
+import Perfil from "./Componentes/Perfil";
 export const ProtectedComponent = () => {
   return <Redirect to="http://localhost:3000/" />;
 };
@@ -29,6 +30,9 @@ const Routes = () => {
           </Route>
           <Route path="/niveles">
             <Niveles />
+          </Route>
+          <Route path="/perfil">
+            <Perfil />
           </Route>
         </Switch>
       </Router>

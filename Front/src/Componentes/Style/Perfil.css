@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  min-height: 90vh;
+  background-color: black;
+  padding-top: 10px;
+  color: white;
+}
+.titulo{
+  color: black;
+  background-color: white;
+  text-shadow: 2px 2px 2px #9b9b9b;
+  margin-top: 20px;
+  width: 100%;
+}
+.fotoPerfil a .iconcamera{
+  color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-top: 128px;
+}
+.datos{
+  width: 220px;
+  margin: auto;
+}
+.datos2{
+  color: white;
+  font-size: 18px;
+}
+.datos .hola{
+  color: white;
+}
+/*Boton cerrar sesión*/
+.cerrar{
+  color: white !important;
+  background-color: #EB4343 !important;
+  border: solid   #EB4343 !important;
+}
+.footer{
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}
