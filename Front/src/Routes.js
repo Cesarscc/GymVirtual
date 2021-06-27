@@ -10,6 +10,8 @@ import Ranking from "./Componentes/Ranking";
 import Dashboard from "./Componentes/Dashboard";
 import Niveles from "./Componentes/Niveles";
 import Perfil from "./Componentes/Perfil";
+import Registration from "./Componentes/Registration";
+
 export const ProtectedComponent = () => {
   return <Redirect to="http://localhost:3000/" />;
 };
@@ -21,6 +23,9 @@ const Routes = () => {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/registration">
+            <Registration />
           </Route>
           <Route path="/ranking">
             <Ranking />

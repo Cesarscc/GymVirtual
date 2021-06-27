@@ -69,7 +69,7 @@ const Login = () => {
           size="large"
           style={{ marginRight: 30, minWidth: 160, background: "#FC683A" }}
         >
-          Igresar
+          Ingresar
         </Button>
         <Button
           type="primary"
