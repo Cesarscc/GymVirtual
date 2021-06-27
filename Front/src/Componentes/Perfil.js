@@ -5,6 +5,7 @@ import FotoPerfil from "./FotoPerfil";
 import Datos from "./Datos";
 import { Button } from "antd";
 import "antd/dist/antd.css";
+import Footer from "./Footer";
 
 function Perfil() {
   return (
@@ -31,7 +32,9 @@ function Perfil() {
         CERRAR SESIÓN
       </Button>
 
-      <div className="footer"></div>
+      <footer className="foot">
+        <Footer />
+      </footer>
     </div>
   );
 }
