@@ -16,6 +16,24 @@ const tailLayout = {
 };
 
 const Login = () => {
+  const onFinish = (values) => {
+    return fetch(`http://localhost:4000/api/auth/signin`, {
+      crossDomain: true,
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (!data.error) {
+          localStorage.setItem("usuario", JSON.stringify(data));
+          window.location.href = "/dashboard";
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="Todo">
       <div className="GymVirtual">
@@ -64,6 +82,7 @@ const Login = () => {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Button
+          htmlType="submit"
           type="primary"
           shape="round"
           size="large"
