@@ -6,7 +6,9 @@ import {
   Route,
 } from "react-router-dom";
 import Login from "./Componentes/Login";
-import Rutina from "./Componentes/Rutina";
+import Ranking from "./Componentes/Ranking";
+import Dashboard from "./Componentes/Dashboard";
+import Niveles from "./Componentes/Niveles";
 export const ProtectedComponent = () => {
   return <Redirect to="http://localhost:3000/" />;
 };
@@ -19,8 +21,14 @@ const Routes = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/rutina">
-            <Rutina />
+          <Route path="/ranking">
+            <Ranking />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/niveles">
+            <Niveles />
           </Route>
         </Switch>
       </Router>
