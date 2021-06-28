@@ -35,6 +35,7 @@ const tailFormItemLayout = {
 
 const Registration = () => {
   const onFinish = (values) => {
+    console.log(values);
     return fetch(`http://localhost:4000/api/auth/signup`, {
       crossDomain: true,
       method: "POST",
@@ -42,9 +43,11 @@ const Registration = () => {
       body: JSON.stringify(values),
     })
       .then((response) => {
+        console.log(response);
         window.location.href = "/login";
         return response.json();
       })
+      .then(console.log)
       .catch((err) => console.log(err));
   };
 
@@ -53,9 +56,8 @@ const Registration = () => {
   const [first_name, setfirst] = React.useState("");
   const [last_name, setlast] = React.useState("");
   const [email, setemail] = React.useState("");
-  const [usuario, setusuario] = React.useState("");
+  const [nickname, setusuario] = React.useState("");
   const [password, setpassword] = React.useState("");
-  const [phone, setphone] = React.useState("");
 
   const [nseguridad, setCount] = useState(0);
 

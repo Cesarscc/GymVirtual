@@ -6,17 +6,17 @@ const { exception } = require("console");
 let salt = "f844b09ff50c";
 
 exports.signup = (req, res) => {
+  console.log(req.body);
   const userData = {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
-    nickname: req.body.nickname,
-    phone: req.body.phone,
+    nickname: req.body.usuario,
     password: req.body.password,
   };
   Usuario.findOne({
     // Asegúrese de que el nombre de usuario sea único, es decir, que el nombre de usuario no esté ya en la base de datos
-    nickname: req.body.nickname,
+    nickname: req.body.usuario,
   })
     .then((user) => {
       // Si es usuario es unico lo agrega a la base de datos
@@ -28,18 +28,18 @@ exports.signup = (req, res) => {
         Usuario.create(userData)
           .then((user) => {
             // Después de crear con éxito userData muestra el mensaje registrado
-            res.redirect("/");
+            res.status(200).send(user);
           })
           .catch((err) => {
             // Si se produjo un error al intentar crear userData, continúe y muestre el error
-            res.send("error:" + err);
+            res.status(500).send("error:" + err);
           });
       } else {
         // Si el nombre de usuario no es único, muestra que el nombre de usuario ya está registrado en una cuenta
-        res.json({
+        res.status(500).send({
           error:
             "El nickname " +
-            req.body.username +
+            req.body.usuario +
             " esta esta registrado con una  cuenta",
         });
       }
@@ -47,29 +47,6 @@ exports.signup = (req, res) => {
     .catch((err) => {
       res.send("error:" + err);
     });
-  //res.json(data);
-
-  /*
-  User.findOne({email}, (error, user) => {
-    if (error||!user) {
-      return res.status(400).json({
-        error: 'User with that email does not exist'
-      });
-    }
-    // if user is found make sure the email and password match
-    // create authenticate method in user model
-    if (!user.authenticate(password)) {
-      return res.status(401).json({
-        error: 'Email and password don\'t match'
-      });
-    }
-    const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
-    // persist the token as 't' in cookie with expiration date
-    res.cookie('t', token, {expire: new Date() + 9999})
-    // return response with user and token to frontend client
-    const {_id, name, email, role} = user
-    return res.json({token, user: {_id, email, name, role}})
-  });*/
 };
 
 exports.signin = (req, res) => {
@@ -98,7 +75,7 @@ exports.signin = (req, res) => {
   //res.json({data});
 };
 
-exports.updateMoney = async (req, res = response) => {
+/* exports.updateMoney = async (req, res = response) => {
   const authId = req.params.authId;
 
   try {
@@ -130,3 +107,4 @@ exports.updateMoney = async (req, res = response) => {
     });
   }
 };
+ */
