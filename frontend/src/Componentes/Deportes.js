@@ -1,31 +1,35 @@
-import React from "react";
+import React , { useState, useEffect}from "react";
 import Deporte from "./Deporte";
 import image1 from "../images/triceps.jpg";
 import image2 from "../images/piernas.jpg";
 import image3 from "../images/brazos.jpg";
 
-const deportes = [
-  {
-    id: 1,
-    nombre: "Triceps",
-    image: image1,
-  },
-  {
-    id: 2,
-    nombre: "Piernas",
-    image: image2,
-  },
-  {
-    id: 3,
-    nombre: "Brazos",
-    image: image3,
-  },
-];
 
-const Deportes = (props) => {
+const Deportes = () => {
+
+  const [deportes, setDeportes] = useState([]);
+
+  useEffect(() => {
+
+    return fetch(`http://localhost:5000/api/ejercicio/ejercicios`, {
+      crossDomain: true,
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.error) {
+          console.log(data.data);
+          // setDeportes(data)
+        }
+      })
+      .catch((error) => console.log(error));
+
+  });
+
   return (
     <div>
-      {deportes.map((deporte) => (
+      {deportes && deportes.map((deporte) => (
         <div className="deporteP" key={deporte.id}>
           <Deporte title={deporte.nombre} image={deporte.image} />
         </div>

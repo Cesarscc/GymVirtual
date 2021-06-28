@@ -30,12 +30,12 @@ mongoose
 mongoose.set("useFindAndModify", false);
 //routes setup
 //app.use('/api/auth', require('./routes/auth'))
-//app.use('/api/publicacion', require('./routes/publicacion'))
-//app.use('/api/solucion', require('./routes/solucion'))
+app.use('/api/ejercicio', require('./routes/ejercicio'))
 
 //listen port
 const port = process.env.PORT;
-
+ 
 app.listen(port, () => {
   console.log(`Servidor APPGYM corriendo en el puerto ${port}`);
 });
+ 
