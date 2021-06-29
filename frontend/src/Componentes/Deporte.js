@@ -9,6 +9,12 @@ const Deporte = (props) => {
       <Link to={`/${props.tittle}/Niveles`}> 
         <div className="conten">
           <h1 className="nombre">{props.tittle}</h1>
+      <div className="conten">
+        <h1 className="nombre">{props.title}</h1>
+      </div>
+      <div className="conten">
+        <div className="box">
+          <img src={props.image} />
         </div>
         <div className="conten">
           <div className="box">
