@@ -1,9 +1,5 @@
 import React , { useState, useEffect}from "react";
 import Deporte from "./Deporte";
-import image1 from "../images/triceps.jpg";
-import image2 from "../images/piernas.jpg";
-import image3 from "../images/brazos.jpg";
-
 
 const Deportes = () => {
 

@@ -13,16 +13,16 @@ function Niveles() {
       <Titulo />
 
       <div className="niveles">
-        <Link to={`/${match.name_category}/Basico`}> 
+        <Link to={`/${match.nameCategory}/Básico`}> 
           <div className="basico">BASICO</div>
         </Link>
-        <Link to={`/${match.name_category}/Intermedio`}>
+        <Link to={`/${match.nameCategory}/Intermedio`}>
           <div className="intermedio">INTERMEDIO</div>
         </Link>
-        <Link to={`/${match.name_category}/Avanzado`}>
+        <Link to={`/${match.nameCategory}/Avanzado`}>
           <div className="avanzado">AVANZADO</div>
         </Link>
-        <Link to={`/${match.name_category}/Personal`}>
+        <Link to={`/${match.nameCategory}/Personal`}>
           <div className="personalizado">Personal</div>
         </Link>
 

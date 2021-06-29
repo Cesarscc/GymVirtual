@@ -33,8 +33,7 @@ mongoose.set("useFindAndModify", false);
 app.use('/api/exercise', require('./routes/exercise'))
 app.use('/api/category', require('./routes/category'))
 app.use("/api/auth", require("./routes/auth"));
-//app.use('/api/publicacion', require('./routes/publicacion'))
-//app.use('/api/solucion', require('./routes/solucion'))
+app.use('/api/routine', require('./routes/routine'));
 
 //listen port
 const port = process.env.PORT;

@@ -57,3 +57,40 @@ exports.exerciseById = (req, res, next, id) => {
         next();
     })
 }
+
+exports.exercisesByCategory = (req,res) => {
+    let category = req.params.nameCategory;
+    let level = req.params.level;
+
+    console.log(level);
+
+    Exercise.find({category: category, level: level}).exec((err,data)=>{
+        
+        if(err){
+            return res.status(400).json({
+                error: errorHandler(err)
+            })
+        }
+        data = randomArray(data);
+        res.json({data});
+    })
+}
+
+const randomArray = (data) => {
+    
+    fData = [];
+    count = 2;
+
+    if(count > data.length){
+        count = data.length;
+        console.log(data.length);
+    }
+
+    for (let i = 0; i < count; i++) {
+        ex = data[Math.floor(Math.random()*data.length)];
+        data = data.filter(item => item !== ex);
+        fData.push(ex);
+    }
+
+    return fData;
+}

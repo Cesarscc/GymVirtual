@@ -16,9 +16,6 @@ const Deporte = (props) => {
           </div>
         </div>
       </Link>
-
-
-
     </div>
   );
 };

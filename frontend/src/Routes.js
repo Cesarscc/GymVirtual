@@ -35,21 +35,20 @@ const Routes = () => {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/:name_category/niveles">
+          <Route path="/:nameCategory/niveles">
             <Niveles />
           </Route>
-          <Route path="/:name_category/:level"> {/*SELECCIONAR COSO*/}
-            <Ranking />
+          <Route path="/:nameCategory/:level">
+            <Basico />
           </Route>
           <Route path="/perfil">
             <Perfil />
           </Route>
-          <Route path="/basico">
-            <Basico />
-          </Route>
+
           <Route path="/primero">
             <Primer_Basico />
           </Route>
+
         </Switch>
       </Router>
     </div>

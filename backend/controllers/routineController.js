@@ -2,8 +2,8 @@ const Routine = require('../models/Routine');
 const {errorHandler} = require('../helpers/dberrorHandler');
 
 exports.create = (req,res) => {
-    const publicacion = new Routine(req.body)
-    publicacion.save((err,data) => {
+    const routine = new Routine(req.body)
+    routine.save((err,data) => {
         if(err){
             return res.status(400).json({
                 error: errorHandler(err)
@@ -25,15 +25,15 @@ exports.list = (req,res) => {
 }
 
 exports.item = (req,res, next) => {
-    if (req.publicacion) {
-        return res.send(req.publicacion)
+    if (req.routine) {
+        return res.send(req.routine)
     }
     next();
 }
 
 exports.remove = (req, res) => {
-    let publicacion = req.publicacion
-    publicacion.remove((err,data)=>{
+    let routine = req.routine
+    routine.remove((err,data)=>{
         if(err){
             return res.status(400).json({
                 error: errorHandler(err)
@@ -46,19 +46,19 @@ exports.remove = (req, res) => {
 
 }
 
-exports.publicacionById = (req, res, next, id) => {
-    Routine.findById(id).exec((err, publicacion)=>{
-        if(err || !publicacion){
+exports.routineById = (req, res, next, id) => {
+    Routine.findById(id).exec((err, routine)=>{
+        if(err || !routine){
             return res.status(400).json({
                 error: "Routine no encontrada o no existe"
             })
         }
-        req.publicacion = publicacion;
+        req.routine = routine;
         next();
     })
 }
 
-exports.publicacionbyuser = (req,res) => {
+exports.routinebyuser = (req,res) => {
     let user = req.params.user;
     console.log(user);
     Routine.find({user: user}).exec((err,data)=>{
