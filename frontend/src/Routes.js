@@ -33,8 +33,11 @@ const Routes = () => {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/niveles">
+          <Route path="/:name_category/niveles">
             <Niveles />
+          </Route>
+          <Route path="/:name_category/:level"> {/*SELECCIONAR COSO*/}
+            <Ranking />
           </Route>
           <Route path="/perfil">
             <Perfil />

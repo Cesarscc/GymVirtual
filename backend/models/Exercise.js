@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
-const ejercicioSchema = new mongoose.Schema(
+const exerciseSchema = new mongoose.Schema(
 
     {
         category:{
         type: String,
         required: true
         },
-
+ 
         tittle: {
         type: String,
         required: true
@@ -23,6 +23,16 @@ const ejercicioSchema = new mongoose.Schema(
         required: true
         },
 
+        reps: {
+            type: Number,
+            required: true
+        },  
+
+        rest: {
+            type: Number,
+            required: true
+        },  
+
         coins: {
             type: Number,
             required: true
@@ -35,4 +45,4 @@ const ejercicioSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("Ejercicio", ejercicioSchema)
+module.exports = mongoose.model("Exercise", exerciseSchema)

@@ -7,31 +7,32 @@ import image3 from "../images/brazos.jpg";
 
 const Deportes = () => {
 
-  const [deportes, setDeportes] = useState([]);
+  const [deportes, setDeportes] = useState(null);
 
   useEffect(() => {
 
-    return fetch(`http://localhost:5000/api/ejercicio/ejercicios`, {
-      crossDomain: true,
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.error) {
-          console.log(data.data);
-          // setDeportes(data)
-        }
+    if(deportes === null){
+      return fetch(`http://localhost:4000/api/category/categories`, {
+        crossDomain: true,
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
       })
-      .catch((error) => console.log(error));
-
-  });
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.error) {
+            console.log(data.data);
+            setDeportes(data.data)
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  },[deportes]);
 
   return (
     <div>
-      {deportes && deportes.map((deporte) => (
-        <div className="deporteP" key={deporte.id}>
-          <Deporte title={deporte.nombre} image={deporte.image} />
+      {deportes && deportes.map( deporte => (
+        <div className="deporteP" key={deporte._id}>
+          <Deporte tittle={deporte.tittle} image={deporte.categoryPhoto} />
         </div>
       ))}
     </div>

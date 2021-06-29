@@ -1,9 +1,9 @@
-const Ejercicio = require('../models/Ejercicio');
+const Exercise = require('../models/Exercise');
 const {errorHandler} = require('../helpers/dberrorHandler');
 
 exports.create = (req,res) => {
-    const ejercicio = new Ejercicio(req.body)
-    ejercicio.save((err,data) => {
+    const exercise = new Exercise(req.body)
+    exercise.save((err,data) => {
         if(err){
             return res.status(400).json({
                 error: errorHandler(err)
@@ -14,7 +14,7 @@ exports.create = (req,res) => {
 }
 
 exports.list = (req,res) => {
-    Ejercicio.find().exec((err,data)=>{
+    Exercise.find().exec((err,data)=>{
         if(err){
             return res.status(400).json({
                 error: errorHandler(err)
@@ -25,35 +25,35 @@ exports.list = (req,res) => {
 }
 
 exports.item = (req,res, next) => {
-    if (req.ejercicio) {
-        return res.send(req.ejercicio)
+    if (req.exercise) {
+        return res.send(req.exercise)
     }
     next();
 }
 
 exports.remove = (req, res) => {
-    let ejercicio = req.ejercicio
-    ejercicio.remove((err,data)=>{
+    let exercise = req.exercise
+    exercise.remove((err,data)=>{
         if(err){
             return res.status(400).json({
                 error: errorHandler(err)
             })
         }
         res.json({
-            message: "Ejercicio eliminada"
+            message: "Exercise eliminada"
         });
     })
 
 }
 
-exports.ejercicioById = (req, res, next, id) => {
-    Ejercicio.findById(id).exec((err, ejercicio)=>{
-        if(err || !ejercicio){
+exports.exerciseById = (req, res, next, id) => {
+    Exercise.findById(id).exec((err, exercise)=>{
+        if(err || !exercise){
             return res.status(400).json({
-                error: "Ejercicio no encontrada o no existe"
+                error: "Exercise no encontrada o no existe"
             })
         }
-        req.ejercicio = ejercicio;
+        req.exercise = exercise;
         next();
     })
 }

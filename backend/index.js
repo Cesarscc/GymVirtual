@@ -30,7 +30,8 @@ mongoose
 mongoose.set("useFindAndModify", false);
 //routes setup
 //app.use('/api/auth', require('./routes/auth'))
-app.use('/api/ejercicio', require('./routes/ejercicio'))
+app.use('/api/exercise', require('./routes/exercise'))
+app.use('/api/category', require('./routes/category'))
 
 //listen port
 const port = process.env.PORT;
