@@ -11,6 +11,7 @@ import Dashboard from "./Componentes/Dashboard";
 import Niveles from "./Componentes/Niveles";
 import Perfil from "./Componentes/Perfil";
 import Registration from "./Componentes/Registration";
+import Historial from "./Componentes/Historial";
 
 export const ProtectedComponent = () => {
   return <Redirect to="http://localhost:3000/" />;
@@ -38,6 +39,9 @@ const Routes = () => {
           </Route>
           <Route path="/perfil">
             <Perfil />
+          </Route>
+          <Route path="/historial">
+            <Historial />
           </Route>
         </Switch>
       </Router>
