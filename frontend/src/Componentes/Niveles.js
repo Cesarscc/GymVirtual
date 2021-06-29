@@ -4,6 +4,11 @@ import "./Style/Niveles.css";
 import Footer from "./Footer";
 
 function Niveles() {
+  let usuariobj = localStorage.getItem("usuario");
+  if (!usuariobj) {
+    window.location.href = "/login";
+  }
+
   return (
     <div className="App">
       <Titulo />
