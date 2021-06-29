@@ -1,9 +1,35 @@
+import React from "react";
+import Subcategoria from "./Subcategoria";
+import abdominales from "../images/abdominales.jpg";
+import sentadillas from "../images/sent_salto.jpg";
 import React, {useState, useEffect} from 'react'
 import Subcategoria from './Subcategoria';
 import {useParams} from "react-router-dom";
 
+const ejercicios_random = [
+  {
+    id: 1,
+    nombre: "Abdominales",
+    image: abdominales,
+  },
+  {
+    id: 2,
+    nombre: "Sentadillas con Salto",
+    image: sentadillas,
+  },
+];
 function Ejercicio_sub(props) {
 
+function Ejercicio_sub(props) {
+  return (
+    <div>
+      {ejercicios_random.map((ejercicio) => (
+        <div className="container" key={ejercicio.id}>
+          <Subcategoria
+            title={ejercicio.nombre}
+            image={ejercicio.image}
+            id={ejercicio.id}
+          />
     const [ejercicios, setEjercicios] = useState(null);
     let match = useParams();
 
@@ -34,7 +60,9 @@ function Ejercicio_sub(props) {
                 </div>
             ))}
         </div>
-    )
+      ))}
+    </div>
+  );
 }
 
 export default Ejercicio_sub;

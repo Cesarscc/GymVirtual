@@ -83,7 +83,7 @@ const Login = () => {
             Ingresar
           </Button>
           <Button
-            href="/registration"
+            href="/registrarse"
             type="primary"
             shape="round"
             size="large"
