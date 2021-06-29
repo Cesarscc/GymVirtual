@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
-import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 import "./Style/Dashboard.css";
 import Deportes from "./Deportes";
 import Footer from "./Footer";
@@ -7,20 +9,18 @@ import Footer from "./Footer";
 import "./Style/prueba.css";
 import { AudioFilled } from "@ant-design/icons";
 
-
 function Dashboard() {
   let usuariobj = localStorage.getItem("usuario");
   if (!usuariobj) {
     window.location.href = "/login";
   }
 
-
   const commands = [
     {
       command: "abrir ejercicio piernas",
       callback: (website) => {
         //window.open("http://" + website.split(" ").join(""));
-          window.location.replace("http://localhost:3000/niveles");
+        window.location.replace("http://localhost:3000/niveles");
       },
     },
     {
@@ -30,7 +30,7 @@ function Dashboard() {
       },*/
       command: "abrir ejercicio tríceps",
       callback: (website) => {
-          window.location.replace("http://localhost:3000/niveles");
+        window.location.replace("http://localhost:3000/niveles");
       },
     },
     {
@@ -50,7 +50,6 @@ function Dashboard() {
   const [isListening, setIsListening] = useState(false);
   const microphoneRef = useRef(null);
 
-
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
       <div className="mircophone-container">
@@ -59,9 +58,14 @@ function Dashboard() {
     );
   }
 
-  let nombres =["piernas", "tríceps", "brazos","perfil","atrás"];
+  let nombres = [
+    "piernas",
+    "tríceps",
+    "abdominales",
+    "perfil",
+    "cerrar sesión",
+  ];
 
- 
   if (transcript == nombres[0]) {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
@@ -77,7 +81,8 @@ function Dashboard() {
     window.location.replace("http://localhost:3000/perfil");
   }
   if (transcript == nombres[4]) {
-    window.location.replace("http://localhost:3000/login");
+    localStorage.clear();
+    window.location.href = "/login";
   }
 
   const handleListing = () => {
@@ -88,12 +93,11 @@ function Dashboard() {
     });
   };
 
-
   const stopHandle = () => {
     setIsListening(false);
     microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
-    console.log(transcript)
+    console.log(transcript);
   };
   const handleReset = () => {
     stopHandle();
@@ -112,21 +116,19 @@ function Dashboard() {
 
       <Deportes />
 
-      <div >
-
+      <div>
         <div>
-        <button className="microphone-icon-container" ref={microphoneRef} onClick={handleListing}>
-          <AudioFilled />
+          <button
+            className="microphone-icon-container"
+            ref={microphoneRef}
+            onClick={handleListing}
+          >
+            <AudioFilled />
           </button>
         </div>
-        
       </div>
       <br />
-        {isListening && (
-          <button onClick={stopHandle}>
-            Stop
-          </button>
-        )}
+      {isListening && <button onClick={stopHandle}>Stop</button>}
 
       {transcript && (
         <div className="microphone-result-container">
@@ -135,7 +137,6 @@ function Dashboard() {
           </div>
         </div>
       )}
-
 
       <footer className="foot">
         <Footer />
