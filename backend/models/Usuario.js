@@ -17,7 +17,7 @@ const usuarioSchema = new mongoose.Schema(
       required: false,
     },
 
-    usuario: {
+    nickname: {
       type: String,
       required: true,
     },
@@ -25,11 +25,6 @@ const usuarioSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-    },
-
-    remember: {
-      type: Boolean,
-      required: false,
     },
 
     photo: {
