@@ -11,6 +11,7 @@ import Dashboard from "./Componentes/Dashboard";
 import Niveles from "./Componentes/Niveles";
 import Perfil from "./Componentes/Perfil";
 import Registration from "./Componentes/Registration";
+import Historial from "./Componentes/Historial";
 import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
 
@@ -46,6 +47,9 @@ const Routes = () => {
           </Route>
           <Route path="/primero">
             <Primer_Basico />
+          </Route>
+          <Route path="/historial">
+            <Historial />
           </Route>
         </Switch>
       </Router>
