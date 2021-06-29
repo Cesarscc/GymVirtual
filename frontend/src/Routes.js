@@ -36,18 +36,19 @@ const Routes = () => {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/niveles">
+          <Route path="/:nameCategory/niveles">
             <Niveles />
+          </Route>
+          <Route path="/:nameCategory/:level">
+            <Basico />
           </Route>
           <Route path="/perfil">
             <Perfil />
           </Route>
-          <Route path="/basico">
-            <Basico />
-          </Route>
-          <Route path="/primero">
+          <Route path="/:idRoutine" >
             <Primer_Basico />
           </Route>
+
           <Route path="/historial">
             <Historial />
           </Route>

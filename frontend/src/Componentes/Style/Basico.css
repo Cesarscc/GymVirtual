@@ -62,13 +62,13 @@
     background-color: white;
     margin:20px;
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: #FC683A;
 }
 
 .nombre{
     color: black;
-    margin-top:22px;
+    padding-top: 11px;
     text-align: center;
 }
 
@@ -77,4 +77,6 @@
     background-color:#FBD348;
     font-size:50px;
     border-radius: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
