@@ -63,7 +63,7 @@ function Dashboard() {
 
  
   if (transcript == nombres[0]) {
-    window.location.replace("http://localhost:3000/niveles");
+    window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
   if (transcript == nombres[1]) {

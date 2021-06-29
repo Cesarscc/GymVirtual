@@ -56,7 +56,7 @@ function Niveles() {
     );
   }
 
-  let nombres =["básico", "intermedio", "avanzado","persolaizado", "regresa atrás"];
+  let nombres =["básico", "intermedio", "avanzado","persolaizado", "regresa"];
 
  
   if (transcript == nombres[0]) {
