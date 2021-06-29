@@ -4,6 +4,10 @@ import Deportes from "./Deportes";
 import Footer from "./Footer";
 
 function Dashboard() {
+  let usuariobj = localStorage.getItem("usuario");
+  if (!usuariobj) {
+    window.location.href = "/login";
+  }
 
   return (
     <div className="App">

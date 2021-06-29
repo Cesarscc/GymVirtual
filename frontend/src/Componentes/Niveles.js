@@ -6,6 +6,10 @@ import {Link,  useParams} from "react-router-dom";
 
 function Niveles() {
   let match = useParams();
+  let usuariobj = localStorage.getItem("usuario");
+  if (!usuariobj) {
+    window.location.href = "/login";
+  }
 
   return (
 

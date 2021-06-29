@@ -1,0 +1,50 @@
+.site-calendar-demo-card {
+    width: 96%;
+    height: 70%;
+    /*border: 1px solid #f0f0f0;*/
+    border-radius: 10px;
+    margin-left: 2%;
+}/*
+[data-theme="dark"] .site-calendar-demo-card {
+      border: 5px solid #303030;
+      border: 5px solid red;
+}*/
+.titulo2{
+    font-size: 30px;
+    color: white;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+/*calendario*/
+.ant-picker-body{
+    background-color:#0077E4;
+}
+.ant-picker-calendar-header{
+    background-color: #0077E4;
+}
+.ant-picker-calendar-date-value{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    color: black;
+}
+.ant-picker-content th{
+    background-color: white;
+    font-size: 20px;
+    color: black;
+}
+
+/**/
+.modal{
+    margin-top: 180px;
+}
+.ant-modal-title{
+    text-align: center;
+}
+.logros{
+    height: 120px;
+    background-color: #FBD348;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 50px;
+}

@@ -4,15 +4,19 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import HomeIcon from "@material-ui/icons/Home";
 import StarIcon from "@material-ui/icons/Star";
 import TurnedInNotIcon from "@material-ui/icons/TurnedInNot";
-
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div className="footerIcons">
-      <HomeIcon fontSize="large" />
+      <Link to="/dashboard">
+        <HomeIcon fontSize="large" />
+      </Link>
       <TurnedInNotIcon fontSize="large" />
       <CalendarTodayIcon fontSize="large" />
       <StarIcon fontSize="large" />
-      <AccountBoxIcon fontSize="large" />
+      <Link to="/perfil">
+        <AccountBoxIcon fontSize="large" />
+      </Link>
     </div>
   );
 }

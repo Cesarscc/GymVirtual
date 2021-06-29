@@ -75,6 +75,36 @@ exports.signin = (req, res) => {
   //res.json({data});
 };
 
+exports.updateUsuario = async (req, res) => {
+  const idUsuario = req.params.authId;
+
+  try {
+    const usuario = Usuario.findById(idUsuario);
+    if (!usuario) {
+      res.status(404).json({
+        error: "Usuario no encontrada o no existe",
+      });
+    }
+    const usuarioToInsert = {
+      ...req.body,
+    };
+    const usuarioUpdated = await Usuario.findByIdAndUpdate(
+      idUsuario,
+      usuarioToInsert,
+      { new: true }
+    );
+
+    res.json({
+      message: "Actualizado",
+      usuario: usuarioUpdated,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      error: "Error interno",
+    });
+  }
+};
 /* exports.updateMoney = async (req, res = response) => {
   const authId = req.params.authId;
 
