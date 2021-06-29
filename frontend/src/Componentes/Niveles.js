@@ -2,7 +2,6 @@ import React from "react";
 import Titulo from "./Titulo";
 import "./Style/Niveles.css";
 import Footer from "./Footer";
-import HomeIcon from "@material-ui/icons/Home";
 
 function Niveles() {
   return (
