@@ -3,7 +3,7 @@
   background-color:black;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .titulo{
@@ -28,8 +28,8 @@
 
 .deporte{
   background-color: #c00650;
-  border-radius: 10px;
-  margin: 15px;
+  border-radius: 20px;
+  margin: 0.5px;
   padding: 5px;
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
   display: flex; /*para que no se superpongan deberia ser block*/
