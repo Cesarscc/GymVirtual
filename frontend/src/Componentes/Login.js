@@ -72,16 +72,6 @@ const Login = () => {
         >
           <Input.Password />
         </Form.Item>
-
-        <Form.Item
-          {...tailLayout}
-          name="remember"
-          style={{ margin: 15, marginRight: 80 }}
-          valuePropName="checked"
-        >
-          <Checkbox>Términos y condiciones</Checkbox>
-        </Form.Item>
-
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button
             type="primary"
