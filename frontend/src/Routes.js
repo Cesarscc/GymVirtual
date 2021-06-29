@@ -11,6 +11,7 @@ import Dashboard from "./Componentes/Dashboard";
 import Niveles from "./Componentes/Niveles";
 import Perfil from "./Componentes/Perfil";
 import Registration from "./Componentes/Registration";
+import Historial from "./Componentes/Historial";
 import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
 
@@ -26,7 +27,7 @@ const Routes = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/registration">
+          <Route path="/registrarse">
             <Registration />
           </Route>
           <Route path="/ranking">
@@ -35,17 +36,21 @@ const Routes = () => {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/niveles">
+          <Route path="/:nameCategory/niveles">
             <Niveles />
+          </Route>
+          <Route path="/:nameCategory/:level">
+            <Basico />
           </Route>
           <Route path="/perfil">
             <Perfil />
           </Route>
-          <Route path="/basico">
-            <Basico />
-          </Route>
-          <Route path="/primero">
+          <Route path="/:idRoutine" >
             <Primer_Basico />
+          </Route>
+
+          <Route path="/historial">
+            <Historial />
           </Route>
         </Switch>
       </Router>

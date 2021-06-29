@@ -3,6 +3,10 @@ import { Button } from "antd";
 import Footer from "./Footer";
 
 const Ranking = () => {
+  let usuariobj = localStorage.getItem("usuario");
+  if (!usuariobj) {
+    window.location.href = "/login";
+  }
   return (
     <div className="Todo">
       <div className="GymVirtual">

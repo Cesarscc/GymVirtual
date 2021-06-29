@@ -30,7 +30,8 @@ const usuarioSchema = new mongoose.Schema(
     photo: {
       type: String,
       required: false,
-      default: "https://image.flaticon.com/icons/png/512/47/47774.png",
+      default:
+        "https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto-300x300.png",
     },
   },
   { timestamps: true }

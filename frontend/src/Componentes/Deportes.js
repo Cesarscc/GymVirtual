@@ -1,33 +1,34 @@
-import React from "react";
+import React , { useState, useEffect}from "react";
 import Deporte from "./Deporte";
-import image1 from "../images/triceps.jpg";
-import image2 from "../images/piernas.jpg";
-import image3 from "../images/brazos.jpg";
 
-const deportes = [
-  {
-    id: 1,
-    nombre: "Triceps",
-    image: image1,
-  },
-  {
-    id: 2,
-    nombre: "Piernas",
-    image: image2,
-  },
-  {
-    id: 3,
-    nombre: "Brazos",
-    image: image3,
-  },
-];
+const Deportes = () => {
 
-const Deportes = (props) => {
+  const [deportes, setDeportes] = useState(null);
+
+  useEffect(() => {
+
+    if(deportes === null){
+      return fetch(`http://localhost:4000/api/category/categories`, {
+        crossDomain: true,
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.error) {
+            console.log(data.data);
+            setDeportes(data.data)
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  },[deportes]);
+
   return (
     <div>
-      {deportes.map((deporte) => (
-        <div className="deporteP" key={deporte.id}>
-          <Deporte title={deporte.nombre} image={deporte.image} />
+      {deportes && deportes.map( deporte => (
+        <div className="deporteP" key={deporte._id}>
+          <Deporte tittle={deporte.tittle} image={deporte.categoryPhoto} />
         </div>
       ))}
     </div>
