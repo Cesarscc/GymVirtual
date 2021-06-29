@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useParams, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import UpdateIcon from '@material-ui/icons/Update';
 
 import './Style/Basico.css'
@@ -31,7 +31,7 @@ function Basico() {
         })
           .then((response) => response.json())
           .then((data) => {
-            if (!data.error) {
+            if(!data.error){
               //console.log(data.data);
               setEjercicios(data.data);
               setRandom(0);
@@ -42,33 +42,33 @@ function Basico() {
   },[random]);
 
   const getRandomExercises = () => {
-      console.log('ayuda :V')
       setRandom(1);
   }
 
   const postRoutine = () => {
 
-    const a = ejercicios.map((ejercicio) => (ejercicio._id))
-    console.log(a)
+    const exerciseIds = ejercicios.map((ejercicio) => (ejercicio._id))
+    
+    console.log(user)
 
-  //   return fetch(`http://localhost:4000/api/routine/createroutine`, {
-  //   crossDomain: true,
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({
-  //     "exerciseIds": 1,
-
-  //   }),
-  // })
-  //   .then((response) => {
-  //     console.log(response);
-  //     window.location.href = "/login";
-  //     return response.json();
-  //   })
-  //   .then(console.log)
-  //   .catch((err) => console.log(err));
+    return fetch(`http://localhost:4000/api/routine/createroutine`, {
+    crossDomain: true,
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      "exerciseIds": exerciseIds,
+      "userId": user._id
+    }),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    if (!data.error) {
+       window.location.href = `/${data._id}=0`;
+    }
+  })
+  .catch((error) => console.log(error));
   }
-
 
   return (
       <div>
@@ -89,7 +89,9 @@ function Basico() {
           </div>
 
           <div>
-              <button className="boton" onClick={postRoutine}>INICIAR</button>
+              <button className="boton" onClick={postRoutine}>
+                INICIAR
+              </button>
           </div>
 
           <footer className="foot">
