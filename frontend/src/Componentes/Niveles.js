@@ -113,7 +113,7 @@ function Niveles() {
           <div className="avanzado">AVANZADO</div>
         </Link>
         <Link to={`/${match.nameCategory}/Personal`}>
-          <div className="personalizado">Personal</div>
+          <div className="personalizado">Personalizado</div>
         </Link>
 
       </div>

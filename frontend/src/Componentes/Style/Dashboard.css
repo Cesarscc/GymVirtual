@@ -22,8 +22,8 @@
   padding: 0.5px;
   
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
-  display: flex; /*para que no se superpongan deberia ser block*/
-  border: 2px solid white;
+  /*display: flex;*/ /*para que no se superpongan deberia ser block*/
+  border: 2px solid ;
 }
 
 .deporte{
@@ -32,8 +32,8 @@
   margin: 0.5px;
   padding: 5px;
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
-  display: flex; /*para que no se superpongan deberia ser block*/
-  border: 2px solid #c00650;
+  /*display: flex*/
+  border: 2px solid;
 }
 
 .link{
@@ -46,7 +46,7 @@
   text-align: center;
   line-height: 20px;
   margin: 0.005px;
-  border: 2px solid #c00650;
+  border: 2px solid ;
 }
 
 .nombre{
