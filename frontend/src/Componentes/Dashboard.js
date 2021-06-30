@@ -62,21 +62,21 @@ function Dashboard() {
     "cerrar sesión",
   ];
 
-  if (transcript == nombres[0]) {
+  if (transcript === nombres[0]) {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
-  if (transcript == nombres[1]) {
+  if (transcript === nombres[1]) {
     window.location.replace("http://localhost:3000/niveles");
   }
 
-  if (transcript == nombres[2]) {
+  if (transcript === nombres[2]) {
     window.location.replace("http://localhost:3000/niveles");
   }
-  if (transcript == nombres[3]) {
+  if (transcript === nombres[3]) {
     window.location.replace("http://localhost:3000/perfil");
   }
-  if (transcript == nombres[4]) {
+  if (transcript === nombres[4]) {
     localStorage.clear();
     window.location.href = "/login";
   }

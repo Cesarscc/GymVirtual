@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
-import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 import Titulo from "./Titulo";
 import "./Style/Niveles.css";
 import Footer from "./Footer";
-import {Link,  useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./Style/prueba.css";
 import { AudioFilled } from "@ant-design/icons";
@@ -14,7 +16,6 @@ function Niveles() {
   if (!usuariobj) {
     window.location.href = "/login";
   }
-
 
   const commands = [
     {
@@ -35,7 +36,6 @@ function Niveles() {
         handleReset();
       },
     },
-    ,
     {
       command: "resetear color",
       callback: () => {
@@ -47,7 +47,6 @@ function Niveles() {
   const [isListening, setIsListening] = useState(false);
   const microphoneRef = useRef(null);
 
-
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
       <div className="mircophone-container">
@@ -56,24 +55,23 @@ function Niveles() {
     );
   }
 
-  let nombres =["básico", "intermedio", "avanzado","persolaizado", "regresa"];
+  let nombres = ["básico", "intermedio", "avanzado", "persolaizado", "regresa"];
 
- 
-  if (transcript == nombres[0]) {
-    window.location.replace("http://localhost:3000/basico");
-  }
-
-  if (transcript == nombres[1]) {
+  if (transcript === nombres[0]) {
     window.location.replace("http://localhost:3000/basico");
   }
 
-  if (transcript == nombres[2]) {
+  if (transcript === nombres[1]) {
     window.location.replace("http://localhost:3000/basico");
   }
-  if (transcript == nombres[3]) {
+
+  if (transcript === nombres[2]) {
     window.location.replace("http://localhost:3000/basico");
   }
-  if (transcript == nombres[4]) {
+  if (transcript === nombres[3]) {
+    window.location.replace("http://localhost:3000/basico");
+  }
+  if (transcript === nombres[4]) {
     window.location.replace("http://localhost:3000/dashboard");
   }
 
@@ -85,12 +83,11 @@ function Niveles() {
     });
   };
 
-
   const stopHandle = () => {
     setIsListening(false);
     microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
-    console.log(transcript)
+    console.log(transcript);
   };
   const handleReset = () => {
     stopHandle();
@@ -98,12 +95,11 @@ function Niveles() {
   };
 
   return (
-
     <div className="App">
       <Titulo />
 
       <div className="niveles">
-        <Link to={`/${match.nameCategory}/Básico`}> 
+        <Link to={`/${match.nameCategory}/Básico`}>
           <div className="basico">BASICO</div>
         </Link>
         <Link to={`/${match.nameCategory}/Intermedio`}>
@@ -115,24 +111,21 @@ function Niveles() {
         <Link to={`/${match.nameCategory}/Personal`}>
           <div className="personalizado">Personalizado</div>
         </Link>
-
       </div>
 
-      <div >
-
+      <div>
         <div>
-        <button className="microphone-icon-container" ref={microphoneRef} onClick={handleListing}>
-          <AudioFilled />
+          <button
+            className="microphone-icon-container"
+            ref={microphoneRef}
+            onClick={handleListing}
+          >
+            <AudioFilled />
           </button>
         </div>
-        
       </div>
       <br />
-        {isListening && (
-          <button onClick={stopHandle}>
-            Stop
-          </button>
-        )}
+      {isListening && <button onClick={stopHandle}>Stop</button>}
 
       {transcript && (
         <div className="microphone-result-container">

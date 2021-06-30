@@ -3,7 +3,6 @@ import Titulo from "./Titulo";
 import Footer from "./Footer";
 import "./Style/Primer_basico.css";
 import "./Style/Basico.css";
-import abdominales from "../images/abdominales.jpg";
 import { useParams } from "react-router-dom";
 
 const Primer_Basico = () => {
@@ -11,8 +10,6 @@ const Primer_Basico = () => {
   if (!userobj) {
     window.location.href = "/login";
   }
-
-  let user = JSON.parse(userobj);
 
   const [ex, setEx] = useState(null);
   const [item, setItem] = useState(null);
