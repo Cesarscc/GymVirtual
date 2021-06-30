@@ -71,11 +71,11 @@ function Dashboard() {
   }
 
   if (transcript == nombres[1]) {
-    window.location.replace("http://localhost:3000/niveles");
+    window.location.replace("http://localhost:3000/Triceps/Niveles");
   }
 
   if (transcript == nombres[2]) {
-    window.location.replace("http://localhost:3000/niveles");
+    window.location.replace("http://localhost:3000/Abdominales/Niveles");
   }
   if (transcript == nombres[3]) {
     window.location.replace("http://localhost:3000/perfil");
@@ -106,7 +106,7 @@ function Dashboard() {
 
   return (
     <div className="App">
-      <div className="titulo">
+      <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
 

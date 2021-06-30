@@ -100,7 +100,9 @@ function Niveles() {
   return (
 
     <div className="App">
-      <Titulo />
+      <div className="GymVirtual">
+        <h1>GYM VIRTUAL</h1>
+      </div>
 
       <div className="niveles">
         <Link to={`/${match.nameCategory}/Básico`}> 

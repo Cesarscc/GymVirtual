@@ -72,7 +72,9 @@ function Basico() {
 
   return (
       <div>
-          <Titulo />
+        <div className="GymVirtual">
+          <h1>GYM VIRTUAL</h1>
+        </div>
 
           <button className="update" onClick={getRandomExercises}><UpdateIcon fontSize= "large" /></button>
 

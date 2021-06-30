@@ -15,7 +15,7 @@
 
 
 .deporteP{
-  background-color: #c00650;
+  background-color: #EB4343;
   
   border-radius: 20px;
   margin: 15px;
@@ -27,13 +27,13 @@
 }
 
 .deporte{
-  background-color: #c00650;
+  background-color: #EB4343;
   border-radius: 20px;
   margin: 0.5px;
   padding: 5px;
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
   display: flex; /*para que no se superpongan deberia ser block*/
-  border: 2px solid #c00650;
+  border: 2px solid #EB4343;
 }
 
 .link{
@@ -41,12 +41,12 @@
 }
 
 .conten{
-  background-color: #c00650;
+  background-color: #EB4343;
   padding-top: 2px;
   text-align: center;
   line-height: 20px;
   margin: 0.005px;
-  border: 2px solid #c00650;
+  border: 2px solid #EB4343;
 }
 
 .nombre{

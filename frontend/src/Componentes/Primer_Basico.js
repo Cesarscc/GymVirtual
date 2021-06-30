@@ -59,7 +59,9 @@ const Primer_Basico = () => {
 
     return (
         <div>
-            <Titulo />
+        <div className="GymVirtual">
+          <h1>GYM VIRTUAL</h1>
+        </div>
 
             <h1 className="primero">
               {item && item.tittle}

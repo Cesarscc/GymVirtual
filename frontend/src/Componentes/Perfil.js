@@ -68,10 +68,10 @@ function Perfil() {
   let phot = usuario.photo;
   return (
     <div className="App">
-      <div className="titulo">
+      <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
-
+      
       <FotoPerfil foto={phot} />
       <br />
       <h2>
