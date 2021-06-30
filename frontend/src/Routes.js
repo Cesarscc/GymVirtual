@@ -45,15 +45,12 @@ const Routes = () => {
           <Route path="/perfil">
             <Perfil />
           </Route>
-
           <Route path="/historial">
             <Historial />
+            <Route path="/:idRoutine">
+              <Primer_Basico />
+            </Route>
           </Route>
-          
-          <Route path="/:idRoutine" >
-            <Primer_Basico />
-          </Route>
-
         </Switch>
       </Router>
     </div>
