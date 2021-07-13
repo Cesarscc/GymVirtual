@@ -17,10 +17,10 @@ function Dashboard() {
 
   const commands = [
     {
-      command: "abrir ejercicio piernas",
+      command: "gymvirtual *",
       callback: (website) => {
         //window.open("http://" + website.split(" ").join(""));
-        window.location.replace("http://localhost:3000/niveles");
+        window.location.replace("http://localhost:3000/Piernas/Niveles");
       },
     },
     {
@@ -28,13 +28,9 @@ function Dashboard() {
       callback: (color) => {
         document.body.style.background = color;
       },*/
-      command: "abrir ejercicio tríceps",
-      callback: (website) => {
-        window.location.replace("http://localhost:3000/niveles");
-      },
     },
     {
-      command: "resetear",
+      command: "borrar",
       callback: () => {
         handleReset();
       },
@@ -66,7 +62,7 @@ function Dashboard() {
     "cerrar sesión",
   ];
 
-  if (transcript == nombres[0]) {
+  if (transcript === nombres[0]) {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
@@ -77,10 +73,10 @@ function Dashboard() {
   if (transcript == nombres[2]) {
     window.location.replace("http://localhost:3000/Abdominales/Niveles");
   }
-  if (transcript == nombres[3]) {
+  if (transcript === nombres[3]) {
     window.location.replace("http://localhost:3000/perfil");
   }
-  if (transcript == nombres[4]) {
+  if (transcript === nombres[4]) {
     localStorage.clear();
     window.location.href = "/login";
   }
@@ -127,6 +123,9 @@ function Dashboard() {
           </button>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
       <br />
       {isListening && <button onClick={stopHandle}>Stop</button>}
 

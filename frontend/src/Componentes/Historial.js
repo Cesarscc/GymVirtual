@@ -1,17 +1,17 @@
-import './Style/Historial.css';
-import React, { useState } from 'react';
-import 'antd/dist/antd.css';
-import { Calendar } from 'antd';
-import Footer from "./Footer"
+import "./Style/Historial.css";
+import React, { useState } from "react";
+import "antd/dist/antd.css";
+import { Calendar } from "antd";
+import Footer from "./Footer";
 //import Registro from "./Registro_logros"
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
 function onPanelChange(value, mode) {
   console.log(value, mode);
 }
 
 function Historial() {
-    const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -30,18 +30,25 @@ function Historial() {
       <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
-      <div className="titulo2">
-        HISTORIAL
-      </div>
+      <div className="titulo2">HISTORIAL</div>
       <div className="site-calendar-demo-card">
-          <Calendar fullscreen={false} onSelect={showModal} onPanelChange={onPanelChange} />
+        <Calendar
+          fullscreen={false}
+          onSelect={showModal}
+          onPanelChange={onPanelChange}
+        />
       </div>
 
-      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className="modal">
+      <Modal
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        className="modal"
+      >
         <div className="logros">
-        <br/>
+          <br />
           <h1>60</h1>
-          <h3>planchas</h3>          
+          <h3>planchas</h3>
         </div>
       </Modal>
 
