@@ -54,15 +54,15 @@ function Niveles() {
     );
   }
 
-  let nombres = ["básico", "intermedio", "avanzado", "persolaizado", "regresa"];
+  let nombres = ["básico", "intermedio", "avanzado", "regresa"];
 
  
   if (transcript === nombres[0]) {
-    window.location.replace("http://localhost:3000/Abdominales/Básico");
+    window.location.replace("http://localhost:3000/Abdominales/Básico/Seleccion");
   }
 
   if (transcript === nombres[1]) {
-    window.location.replace("http://localhost:3000/Abdominales/Intermedio");
+    window.location.replace("http://localhost:3000/Abdominales/Intermedio/Seleccion");
   }
 
   if (transcript === nombres[2]) {

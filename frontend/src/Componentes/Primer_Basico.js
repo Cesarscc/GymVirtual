@@ -17,8 +17,8 @@ const Primer_Basico = () => {
   const [item, setItem] = useState(null);
 
   let match = useParams();
-  const [id, i, len] = match.idRoutine.split("=");
-  console.log(id, i, len);
+  const [id, i, len, coins] = match.idRoutine.split("=");
+  console.log(id, i, len, coins);
 
   useEffect(() => {
     return fetch(`http://localhost:4000/api/routine/${id}`, {
@@ -80,7 +80,12 @@ const Primer_Basico = () => {
   }, [time,timerOn])
 
   function vent_emergente() {
-    setIsModalVisible(true);
+    if (i < len){
+      setIsModalVisible(true);
+    }
+    else{
+      final();
+    }
   }
 
   function reset() {
@@ -91,6 +96,7 @@ const Primer_Basico = () => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    changeData();
   };
 
   const handleCancel = () => {
@@ -101,18 +107,31 @@ const Primer_Basico = () => {
   const changeData = () => {
     if (i < len){
       let j = parseInt(i) + 1;
-      window.location.href = `/rutina/${id}=${j}=${len}`;
+      let newCoins = parseInt(coins) + item.coins;
+      window.location.href = `/rutina/${id}=${j}=${len}=${newCoins}`;
     }
     else{
       final();
     }
   }
 
+  const passPanel = () => {
+    if (i < len){
+      let j = parseInt(i) + 1;
+      window.location.href = `/rutina/${id}=${j}=${len}=${coins}`;
+    }
+    else{
+      final();
+    }
+  }
+
+
 const final = () => {
   let secondsToGo = 5;
+  let newCoins = parseInt(coins) + item.coins;
   const modal = Modal.success({
     title: '¡Lo lograste!',
-    content: `Monedas obtenidas: ${item.coins}`,
+    content: `Monedas obtenidas: ${newCoins}`,
     onOk() {
       window.location.href = `/dashboard`;
     }
@@ -157,12 +176,11 @@ const final = () => {
       </div>
 
       <div className="premio">
-        <h3 className="premio">Recompensa:</h3>
-        {item && item.coins}
+        <h3 className="premio">Recompensa: {item && item.coins}</h3>
       </div>
 
       <div>
-        <button className="boton" onClick={changeData}>Siguiente</button>
+        <button className="boton" onClick={passPanel}>Siguiente</button>
       </div>
 
       <div>
