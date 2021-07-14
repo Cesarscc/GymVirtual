@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: black;
+  background-color: #1c1c1c;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   padding-top: 7px;
@@ -8,7 +8,7 @@
 
 .titulo {
   background-color: white;
-  color: black;
+  color: #1c1c1c;
   font-size: 10px;
   text-shadow: 2px 2px 2px #9b9b9b;
 }
@@ -20,8 +20,8 @@
 
 
 .deporteP{
-  background-color: #EB4343;
   
+  color: #d3103a;
   border-radius: 20px;
   margin: 15px;
   padding: 0.5px;
@@ -49,14 +49,16 @@
   text-decoration: none;
 }
 
+
+
 .conten {
-  background-color: #eb4343;
+  background-color: #1c1c1c;
   padding-top: 2px;
   text-align: center;
   line-height: 20px;
   margin: 0.005px;
   border: 2px solid ;
-  color: #c00650;
+  color: #1c1c1c;
 }
 
 .mensaje{
