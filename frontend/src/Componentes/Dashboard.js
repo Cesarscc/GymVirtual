@@ -57,10 +57,10 @@ function Dashboard() {
   }
 
   let nombres = [
-    "piernas",
-    "tríceps",
-    "abdominales",
-    "perfil",
+    "ejercicio piernas",
+    "ejercicio tríceps",
+    "ejercicio abdominales",
+    "ir a perfil",
     "cerrar sesión",
   ];
 
@@ -68,7 +68,7 @@ function Dashboard() {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
-  /*if (transcript === nombres[1]) {
+  if (transcript === nombres[1]) {
     window.location.replace("http://localhost:3000/Tríceps/Niveles");
   }
 
@@ -81,7 +81,7 @@ function Dashboard() {
   if (transcript === nombres[4]) {
     localStorage.clear();
     window.location.href = "/login";
-  }*/
+  }
 
   const handleListing = () => {
     setIsListening(true);
@@ -110,8 +110,8 @@ function Dashboard() {
 
       <div className="microfono">
         <h2 className="mensaje">¡Hora de Entrenar!</h2>
-        <div>
-          <div>
+      </div>
+      <div>
             <button
               className="microphone-icon-container"
               ref={microphoneRef}
@@ -119,22 +119,9 @@ function Dashboard() {
             >
               <AudioFilled />
             </button>
-          </div>
         </div>
-      </div>
-
-      {isListening && <button onClick={stopHandle}>Stop</button>}
-      {transcript && (
-        <div className="microphone-result-container">
-          <div className="microphone-result-text">
-            <p>{transcript}</p>
-          </div>
-        </div>
-      )}
 
       <Deportes />
-
-      
 
       <footer className="foot">
         <Footer />

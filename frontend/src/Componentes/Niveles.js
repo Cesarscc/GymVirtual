@@ -25,21 +25,9 @@ function Niveles() {
       },
     },
     {
-      command: "color *",
-      callback: (color) => {
-        document.body.style.background = color;
-      },
-    },
-    {
       command: "resetear",
       callback: () => {
         handleReset();
-      },
-    },
-    {
-      command: "resetear color",
-      callback: () => {
-        document.body.style.background = `rgba(0, 0, 0, 0.8)`;
       },
     }
   ];
@@ -55,19 +43,19 @@ function Niveles() {
     );
   }
 
-  let nombres = ["básico", "intermedio", "avanzado", "persolaizado", "regresa"];
+  let nombres = ["nivel básico", "nivel intermedio", "nivel avanzado", "personalizado", "volver atrás"];
 
  
   if (transcript === nombres[0]) {
-    window.location.replace("http://localhost:3000/Abdominales/Básico");
+    window.location.replace(`http://localhost:3000/${match.nameCategory}/Básico`);
   }
 
   if (transcript === nombres[1]) {
-    window.location.replace("http://localhost:3000/Abdominales/Intermedio");
+    window.location.replace(`http://localhost:3000/${match.nameCategory}/Intermedio`);
   }
 
   if (transcript == nombres[2]) {
-    window.location.replace("http://localhost:3000/basico");
+    window.location.replace(`local...`);
   }
   if (transcript === nombres[3]) {
     window.location.replace("http://localhost:3000/basico");
@@ -130,15 +118,6 @@ function Niveles() {
         </div>
       </div>
       <br />
-      {isListening && <button onClick={stopHandle}>Stop</button>}
-
-      {transcript && (
-        <div className="microphone-result-container">
-          <div className="microphone-result-text">
-            <p>{transcript}</p>
-          </div>
-        </div>
-      )}
 
       <footer className="foot">
         <Footer />

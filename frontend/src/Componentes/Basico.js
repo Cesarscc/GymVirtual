@@ -79,7 +79,7 @@ function Basico() {
       </button>
 
       <div className="nota">
-        <h1 className="pregunta">¿LISTO PARA EMPEZAR?</h1>
+        <h2 className="pregunta">¿LISTO PARA EMPEZAR?</h2>
       </div>
 
       <div>
