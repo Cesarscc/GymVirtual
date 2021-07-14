@@ -5,6 +5,7 @@ import { Calendar } from "antd";
 import Footer from "./Footer";
 //import Registro from "./Registro_logros"
 import { Modal } from "antd";
+import Titulo from "./Titulo";
 
 function onPanelChange(value, mode) {
   console.log(value, mode);
@@ -28,9 +29,7 @@ function Historial() {
 
   return (
     <div className="App">
-      <div className="GymVirtual">
-        <h1>GYM VIRTUAL</h1>
-      </div>
+      <Titulo />
       <div className="titulo2">HISTORIAL</div>
       <div className="site-calendar-demo-card">
         <Calendar
