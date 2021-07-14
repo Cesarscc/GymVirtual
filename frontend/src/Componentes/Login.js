@@ -92,7 +92,9 @@ const Login = () => {
 
       <div>
         <br />
-        <button><a href="http://localhost:3000/">volver</a></button>
+        <button>
+          <a href="http://localhost:3000/">volver</a>
+        </button>
       </div>
     </div>
   );
