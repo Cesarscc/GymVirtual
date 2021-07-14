@@ -1,31 +1,56 @@
-import React from 'react'
-import './Style/Ranking.css';
-import 'antd/dist/antd.css';
-import Usuario from './Usuario.js';
-import Titulo from './Titulo.js';
-import Footer from './Footer.js';
-import "./Style/prueba.css";
+import React, { useState, useEffect } from "react";
+import "./Style/Ranking.css";
+import "antd/dist/antd.css";
+import Usuario from "./Usuario.js";
+import Titulo from "./Titulo.js";
+import Footer from "./Footer.js";
+import { orderBy } from "lodash";
 
 function Ranking() {
+  let usuariobj = localStorage.getItem("usuario");
+  let usuario = JSON.parse(usuariobj);
+  let i = 0;
+  const [Users, setUsers] = useState(null);
+
+  useEffect(() => {
+    if (Users === null) {
+      return fetch(`http://localhost:4000/api/auth/usuarios`, {
+        crossDomain: true,
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          if (!json.error) {
+            setUsers(orderBy(json.data, ["coins"], ["desc"]));
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [Users]);
+
   return (
     <div className="App">
-
       <Titulo />
 
-      <div className="titulo-ranking">
-        RANKING SEMANAL
-      </div>
-      
-      <Usuario num="1" nickname="JESUSM" ganancia="390"/>
+      <div className="titulo-ranking">RANKING SEMANAL</div>
 
-      <Usuario num="2" nickname="TVJESUS" ganancia="390"/>
+      {Users &&
+        Users.map((user) => (
+          <div key={user._id}>
+            <Usuario
+              num={(i += 1)}
+              nickname={user.nickname}
+              ganancia={user.coins}
+            />
+          </div>
+        ))}
 
       <footer className="foot">
         <Footer />
       </footer>
-
     </div>
-  )
+  );
 }
 
-export default Ranking
+export default Ranking;

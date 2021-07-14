@@ -15,11 +15,6 @@ function Perfil() {
   }
   let usuario = JSON.parse(usuariobj);
   let salt = "f844b09ff50c";
-  const getData = () => {
-    console.log(usuariobj);
-  };
-  getData();
-
   function cerrarSesion() {
     localStorage.clear();
     window.location.href = "/login";
@@ -32,10 +27,11 @@ function Perfil() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usuario),
     })
-      .then((data) => {
-        data.json();
-      })
-      .then(console.log);
+      .then((data) => data.json())
+      .then((json) => {
+        localStorage.removeItem("usuario");
+        localStorage.setItem("usuario", JSON.stringify(json.usuario));
+      });
   }
 
   function onChangeNombre(nombre) {
@@ -62,7 +58,6 @@ function Perfil() {
     updateUser(usuario._id, usuario);
   }
   function onChangePhoto(base64String) {
-    console.log("on change foto", base64String);
     usuario.photo = base64String;
     updateUser(usuario._id, usuario);
   }
