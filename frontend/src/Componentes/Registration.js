@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Tooltip, Select, Checkbox, Button } from "antd";
+import { Form, Input, Tooltip, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 
 const formItemLayout = {
@@ -53,12 +53,6 @@ const Registration = () => {
 
   const [form] = Form.useForm();
 
-  const [first_name, setfirst] = React.useState("");
-  const [last_name, setlast] = React.useState("");
-  const [email, setemail] = React.useState("");
-  const [nickname, setusuario] = React.useState("");
-  const [password, setpassword] = React.useState("");
-
   const [nseguridad, setCount] = useState(0);
 
   var letras = "abcdefghyjklmnñopqrstuvwxyz";
@@ -83,8 +77,6 @@ const Registration = () => {
     }
     return 0;
   }
-
-  var letras = "abcdefghyjklmnñopqrstuvwxyz";
 
   function tiene_minusculas(texto) {
     for (var i = 0; i < texto.length; i++) {
@@ -191,7 +183,6 @@ const Registration = () => {
               message: "Es necesario ingresar su nombre",
             },
           ]}
-          onChange={(e) => setfirst(e.target.value)}
         >
           <Input />
         </Form.Item>
@@ -205,7 +196,6 @@ const Registration = () => {
               message: "Es necesario ingresar sus apellidos",
             },
           ]}
-          onChange={(e) => setlast(e.target.value)}
         >
           <Input />
         </Form.Item>
@@ -227,7 +217,6 @@ const Registration = () => {
               whitespace: true,
             },
           ]}
-          onChange={(e) => setusuario(e.target.value)}
         >
           <Input />
         </Form.Item>
@@ -245,7 +234,6 @@ const Registration = () => {
               message: "¡Por favor, ingrese su email!",
             },
           ]}
-          onChange={(e) => setemail(e.target.value)}
         >
           <Input />
         </Form.Item>
@@ -271,7 +259,6 @@ const Registration = () => {
             }),
           ]}
           hasFeedback
-          onChange={(e) => setpassword(e.target.value)}
         >
           <Input.Password addonAfter={security} />
         </Form.Item>
@@ -315,7 +302,7 @@ const Registration = () => {
           {...tailFormItemLayout}
         >
           <Checkbox>
-            He leído los <a href="">Términos y Condiciones</a>.
+            He leído los <a href="/">Términos y Condiciones</a>.
           </Checkbox>
         </Form.Item>
 

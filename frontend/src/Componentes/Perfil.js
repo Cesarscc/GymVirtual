@@ -70,7 +70,7 @@ function Perfil() {
 
   return (
     <div className="App">
-      <div className="titulo">
+      <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
 

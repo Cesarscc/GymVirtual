@@ -3,7 +3,7 @@
   background-color: black;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  padding-top: 15px;
+  padding-top: 7px;
 }
 
 .titulo {
@@ -20,7 +20,7 @@
 
 
 .deporteP{
-  background-color: #c00650;
+  background-color: #EB4343;
   
   border-radius: 20px;
   margin: 15px;
@@ -36,13 +36,13 @@
 }
 
 .deporte{
-  background-color: #c00650;
+  
   border-radius: 20px;
   margin: 0.5px;
   padding: 5px;
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
   /*display: flex;*/
-  border: 2px solid;
+  border: 2px;
 }
 
 .link {
@@ -55,15 +55,11 @@
   text-align: center;
   line-height: 20px;
   margin: 0.005px;
-  border: 2px solid;
+  border: 2px solid ;
+  color: #c00650;
 }
 
-.nombre {
-  text-align: left;
-  color: white;
-}
-
-.mensaje {
+.mensaje{
   color: white;
 }
 

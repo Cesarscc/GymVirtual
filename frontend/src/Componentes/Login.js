@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 const layout = {
   labelCol: {
     span: 8,
@@ -8,12 +8,7 @@ const layout = {
     span: 4,
   },
 };
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
+
 
 const Login = () => {
   const onFinish = (values) => {

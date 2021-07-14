@@ -57,10 +57,10 @@ function Dashboard() {
   }
 
   let nombres = [
-    "piernas",
-    "tríceps",
-    "abdominales",
-    "perfil",
+    "ejercicio piernas",
+    "ejercicio tríceps",
+    "ejercicio abdominales",
+    "ir a perfil",
     "cerrar sesión",
   ];
 
@@ -104,14 +104,14 @@ function Dashboard() {
 
   return (
     <div className="App">
-      <div className="titulo">
+      <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
 
       <div className="microfono">
         <h2 className="mensaje">¡Hora de Entrenar!</h2>
-        <div>
-          <div>
+      </div>
+      <div>
             <button
               className="microphone-icon-container"
               ref={microphoneRef}
@@ -119,15 +119,9 @@ function Dashboard() {
             >
               <AudioFilled />
             </button>
-          </div>
         </div>
-      </div>
-
-      
 
       <Deportes />
-
-      
 
       <footer className="foot">
         <Footer />

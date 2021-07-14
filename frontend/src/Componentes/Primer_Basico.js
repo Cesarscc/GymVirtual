@@ -1,5 +1,4 @@
-import React, {useRef, useState, useEffect } from "react";
-import Titulo from "./Titulo";
+import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import "./Style/Primer_basico.css";
 import "./Style/Basico.css";
@@ -18,8 +17,8 @@ const Primer_Basico = () => {
   const [item, setItem] = useState(null);
 
   let match = useParams();
-  const [id, i] = match.idRoutine.split("=");
-  console.log(id, i);
+  const [id, i, len] = match.idRoutine.split("=");
+  console.log(id, i, len);
 
   useEffect(() => {
     return fetch(`http://localhost:4000/api/routine/${id}`, {
@@ -34,7 +33,7 @@ const Primer_Basico = () => {
         }
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (ex !== null) {
@@ -52,7 +51,7 @@ const Primer_Basico = () => {
         })
         .catch((error) => console.log(error));
     }
-  }, [ex]);
+  }, [ex, i]);
 
   const [time, setTime] = useState(3000)  //el numero representa 300 segundos = 5 min
   const [timerOn, setTimeOn] = useState(false)
@@ -69,7 +68,6 @@ const Primer_Basico = () => {
       setTime(3000);
       clearInterval(interval);
     }
-  
 
     if (time === 0) { // segundos = cero
       reset();
@@ -97,21 +95,49 @@ const Primer_Basico = () => {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    final();
   };
 
+  const changeData = () => {
+    if (i < len){
+      let j = parseInt(i) + 1;
+      window.location.href = `/rutina/${id}=${j}=${len}`;
+    }
+    else{
+      final();
+    }
+  }
+
+const final = () => {
+  let secondsToGo = 5;
+  const modal = Modal.success({
+    title: '¡Lo lograste!',
+    content: `Monedas obtenidas: ${item.coins}`,
+    onOk() {
+      window.location.href = `/dashboard`;
+    }
+  });
+  const timer = setInterval(() => {
+    secondsToGo -= 1;
+  }, 1000);
+  setTimeout(() => {
+    clearInterval(timer);
+    modal.destroy();
+    window.location.href = `/dashboard`;
+  }, secondsToGo * 1000);
+}
 
   return (
     <div>
-      <Titulo />
+        <div className="GymVirtual">
+          <h1>GYM VIRTUAL</h1>
+        </div>
 
       <h1 className="primero">{item && item.tittle}</h1>
 
       <div className="box_random">
-        <img src={item && item.exercisePhoto} />
+        <img src={item && item.exercisePhoto} alt='Deporte'/>
       </div>
-
-      <h3 className="primero">Reps: {item && item.reps}</h3>
-      <h3 className="primero">Desc: {item && item.rest}</h3>
 
       <div>
         <div className="cronometro">
@@ -123,31 +149,28 @@ const Primer_Basico = () => {
 
       <div>
         {!timerOn && (
-          <button className="boto" onClick={() => setTimeOn(true)} >INICIAR</button>
+          <button className="boto" onClick={() => setTimeOn(true)} >Iniciar</button>
         )}
         {timerOn && (
-          <button className="boto" onClick={() => setTimeOn(false)} >REINICIAR</button>
+          <button className="boto" onClick={() => setTimeOn(false)} >Reiniciar</button>
         )}
       </div>
 
       <div className="premio">
-        <h3 className="premio">Recompensa</h3>
-        
+        <h3 className="premio">Recompensa:</h3>
+        {item && item.coins}
       </div>
 
       <div>
-        <button className="boton">SIGUIENTE</button>
+        <button className="boton" onClick={changeData}>Siguiente</button>
       </div>
+
       <div>
         <button className="cancelar">Cancelar <CancelIcon /> </button>
       </div>
 
-      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className="modal">
-        <div className="logros">
-          <br />
-          <h1>60</h1>
-          <h3>planchas</h3>
-        </div>
+      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className="modal" okText="Sí" cancelText="No">
+          <h2>¿Podemos continuar?</h2>
       </Modal>
 
       <footer className="foot">
@@ -156,6 +179,5 @@ const Primer_Basico = () => {
     </div>
   );
 };
-
 
 export default Primer_Basico;
