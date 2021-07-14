@@ -49,6 +49,17 @@ exports.signup = (req, res) => {
     });
 };
 
+exports.list = (req, res) => {
+  Usuario.find().exec((err, data) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json({ data });
+  });
+};
+
 exports.signin = (req, res) => {
   Usuario.findOne({
     // Verifica si el nombre de usuario esta en la base de datos

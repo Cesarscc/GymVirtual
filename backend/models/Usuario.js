@@ -26,7 +26,11 @@ const usuarioSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
+    coins: {
+      type: Number,
+      required: false,
+      default: 10,
+    },
     photo: {
       type: String,
       required: false,

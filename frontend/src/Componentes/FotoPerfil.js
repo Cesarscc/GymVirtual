@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 import { Upload, Button } from "antd";
 import "./Style/foto.css";
 const FotoPerfil = (props) => {
-  const [b64File, setFile] = useState({ ...props.foto });
+  const [b64File, setFile] = useState(props.foto);
 
   let usuariobj = localStorage.getItem("usuario");
   if (!usuariobj) {
