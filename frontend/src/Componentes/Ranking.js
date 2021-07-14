@@ -1,37 +1,31 @@
-import React from "react";
-import { Button } from "antd";
-import Footer from "./Footer";
+import React from 'react'
+import './Style/Ranking.css';
+import 'antd/dist/antd.css';
+import Usuario from './Usuario.js';
+import Titulo from './Titulo.js';
+import Footer from './Footer.js';
+import "./Style/prueba.css";
 
-const Ranking = () => {
-  let usuariobj = localStorage.getItem("usuario");
-  if (!usuariobj) {
-    window.location.href = "/login";
-  }
+function Ranking() {
   return (
-    <div className="Todo">
-      <div className="GymVirtual">
-        <h1>GYM VIRTUAL</h1>
-      </div>
-      <div>
-        <h2 style={{ color: "white", font: "revert" }}>Ranking Semanal</h2>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          type="primary"
-          shape="round"
-          size="large"
-          style={{ marginRight: 30, minWidth: 160, background: "#FC683A" }}
-        >
-          Igresar
-        </Button>
-      </div>
-      <div>
-        <footer className="foot">
-          <Footer></Footer>
-        </footer>
-      </div>
-    </div>
-  );
-};
+    <div className="App">
 
-export default Ranking;
+      <Titulo />
+
+      <div className="titulo-ranking">
+        RANKING SEMANAL
+      </div>
+      
+      <Usuario num="1" nickname="JESUSM" ganancia="390"/>
+
+      <Usuario num="2" nickname="TVJESUS" ganancia="390"/>
+
+      <footer className="foot">
+        <Footer />
+      </footer>
+
+    </div>
+  )
+}
+
+export default Ranking
