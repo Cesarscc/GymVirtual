@@ -8,6 +8,7 @@ import Footer from "./Footer";
 
 import "./Style/prueba.css";
 import { AudioFilled } from "@ant-design/icons";
+import Titulo from "./Titulo";
 
 
 
@@ -47,6 +48,15 @@ function Dashboard() {
   const { transcript, resetTranscript } = useSpeechRecognition({ commands });
   const [isListening, setIsListening] = useState(false);
   const microphoneRef = useRef(null);
+
+
+
+  /*useEffect(() => {
+    
+  }, [transcript,nombres]);*/
+
+
+
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
@@ -104,22 +114,21 @@ function Dashboard() {
 
   return (
     <div className="App">
-      <div className="GymVirtual">
-        <h1>GYM VIRTUAL</h1>
-      </div>
+      <Titulo />
 
       <div className="microfono">
         <h2 className="mensaje">¡Hora de Entrenar!</h2>
-      </div>
-      <div>
-            <button
+        <button
               className="microphone-icon-container"
               ref={microphoneRef}
               onClick={handleListing}
             >
               <AudioFilled />
             </button>
-        </div>
+      </div>
+      <div>
+            
+      </div>
 
       <Deportes />
 

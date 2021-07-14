@@ -1,5 +1,4 @@
 .niveles{
-    border: 1px solid white;
     height:50%;
 }
 
@@ -9,8 +8,8 @@
 }
 
 .basico{
-    background-color: #FBD348;
-    border: 1px solid white;
+    background-color: #1c1c1c;
+    border: 1px solid #FBD348;
     font-size:40px;
     border-radius: 20px;
     color: #fff;
@@ -20,18 +19,18 @@
 }
 
 .intermedio{
-    background-color: #FC683A;
-    border: 1px solid white;
+    background-color: #1c1c1c;
+    border: 1px solid #FC683A;
     font-size:40px;
     border-radius: 20px;
     color: #fff;
     margin: 60px;
     padding: 5px;
 }
-  
+
 .avanzado{
-    background-color: #EB4343;
-    border: 1px solid white;
+    background-color: #1c1c1c;
+    border: 1px solid #EB4343;
     font-size:40px;
     border-radius: 20px;
     color: #fff;
@@ -40,11 +39,21 @@
 }
 
 .personalizado{
-    background-color: #0077E4;
-    border: 1px solid white;
+    background-color: #1c1c1c;
+    border: 1px solid #0077E4;
     font-size:40px;
     border-radius: 20px;
     color: #fff;
     margin: 60px;
     padding: 5px;
+}
+
+.aaaa{
+    display: flex;
+    margin-right: 35px;
+    margin-top: 40px;
+}
+
+.aaaaa{
+    margin-top:25px;
 }

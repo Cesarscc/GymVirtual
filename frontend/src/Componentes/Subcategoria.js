@@ -9,7 +9,7 @@ function Subcategoria(props) {
             </div>
             <div className="name">
                 <div className="nombre">
-                    <h2>{props.title}</h2>
+                    {props.title}
                 </div>
             </div>
         </div>
