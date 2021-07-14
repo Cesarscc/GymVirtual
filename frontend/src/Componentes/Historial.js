@@ -13,7 +13,8 @@ function onPanelChange(value, mode) {
 function Historial() {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const showModal = () => {
+  const showModal = (value) => {
+    console.log(value);
     setIsModalVisible(true);
   };
 
@@ -46,7 +47,6 @@ function Historial() {
         className="modal"
       >
         <div className="logros">
-          <br />
           <h1>60</h1>
           <h3>planchas</h3>
         </div>

@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import Titulo from "./Titulo";
 import "./Style/Niveles.css";
 import Footer from "./Footer";
 import { Link, useParams } from "react-router-dom";
@@ -101,16 +100,16 @@ function Niveles() {
       </div>
 
       <div className="niveles">
-        <Link to={`/${match.nameCategory}/Básico`}>
+        <Link to={`/${match.nameCategory}/Básico/Seleccion`}>
           <div className="basico">BASICO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Intermedio`}>
+        <Link to={`/${match.nameCategory}/Intermedio/Seleccion`}>
           <div className="intermedio">INTERMEDIO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Avanzado`}>
+        <Link to={`/${match.nameCategory}/Avanzado/Seleccion`}>
           <div className="avanzado">AVANZADO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Personal`}>
+        <Link to={`/${match.nameCategory}/Personal/Seleccion`}>
           <div className="personalizado">Personalizado</div>
         </Link>
       </div>

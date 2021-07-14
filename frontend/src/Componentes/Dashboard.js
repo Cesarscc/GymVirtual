@@ -66,11 +66,11 @@ function Dashboard() {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
-  if (transcript == nombres[1]) {
+  if (transcript === nombres[1]) {
     window.location.replace("http://localhost:3000/Triceps/Niveles");
   }
 
-  if (transcript == nombres[2]) {
+  if (transcript === nombres[2]) {
     window.location.replace("http://localhost:3000/Abdominales/Niveles");
   }
   if (transcript === nombres[3]) {

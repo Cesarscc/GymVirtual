@@ -8,9 +8,6 @@
 
 .update{
     background-color:white;
-    margin-top:20px;
-    margin-left:80%;
-    margin-right:5%;
     border-radius:20px;
 }
 
@@ -79,4 +76,14 @@
     border-radius: 20px;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+.Container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.TittleCategory{
+    color: white;
+    margin-left: 30px;
 }

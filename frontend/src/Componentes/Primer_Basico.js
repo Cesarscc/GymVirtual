@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Titulo from "./Titulo";
 import Footer from "./Footer";
 import "./Style/Primer_basico.css";
 import "./Style/Basico.css";
@@ -15,8 +14,8 @@ const Primer_Basico = () => {
   const [item, setItem] = useState(null);
 
   let match = useParams();
-  const [id, i] = match.idRoutine.split("=");
-  console.log(id, i);
+  const [id, i, len] = match.idRoutine.split("=");
+  console.log(id, i, len);
 
   useEffect(() => {
     return fetch(`http://localhost:4000/api/routine/${id}`, {
@@ -28,10 +27,11 @@ const Primer_Basico = () => {
       .then((data) => {
         if (!data.error) {
           setEx(data);
+          console.log(ex);
         }
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (ex !== null) {
@@ -49,7 +49,7 @@ const Primer_Basico = () => {
         })
         .catch((error) => console.log(error));
     }
-  }, [ex]);
+  }, [ex, i]);
 
     return (
         <div>
@@ -60,11 +60,8 @@ const Primer_Basico = () => {
       <h1 className="primero">{item && item.tittle}</h1>
 
       <div className="box_random">
-        <img src={item && item.exercisePhoto} />
+        <img src={item && item.exercisePhoto} alt='Deporte'/>
       </div>
-
-      <h3 className="primero">Reps: {item && item.reps}</h3>
-      <h3 className="primero">Desc: {item && item.rest}</h3>
 
       <div>
         <button className="boton">INICIAR</button>

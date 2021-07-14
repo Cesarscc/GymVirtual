@@ -1,5 +1,4 @@
 import React from "react";
-import { AudioFilled } from "@ant-design/icons";
 import {Link} from "react-router-dom";
 
 const Deporte = (props) => {
@@ -12,7 +11,7 @@ const Deporte = (props) => {
           </div>
       <div className="conten">
         <div className="box">
-          <img src={props.image} />
+          <img src={props.image} alt='Deporte' />
         </div>
         </div>
       </Link>

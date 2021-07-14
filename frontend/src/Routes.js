@@ -14,43 +14,55 @@ import Registration from "./Componentes/Registration";
 import Historial from "./Componentes/Historial";
 import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
-
-export const ProtectedComponent = () => {
-  return <Redirect to="http://localhost:3000/" />;
-};
+import Error from "./Componentes/Error";
+import Home from "./Componentes/Home";
 
 const Routes = () => {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/login">
-            <Login />
+          <Route path="/error/404" exact component={Error}>
           </Route>
-          <Route path="/registrarse">
-            <Registration />
+
+          <Route path="/home" exact component={Home}>
           </Route>
-          <Route path="/ranking">
-            <Ranking />
+
+          <Route path="/login" exact component={Login}>
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
+          
+          <Route path="/registrarse" exact component={Registration}>
           </Route>
-          <Route path="/:nameCategory/niveles">
-            <Niveles />
+          
+          <Route path="/ranking" exact component={Ranking}>
           </Route>
-          <Route path="/:nameCategory/:level">
-            <Basico />
+          
+          <Route path="/dashboard" exact component={Dashboard}>
           </Route>
+
           <Route path="/perfil">
             <Perfil />
           </Route>
+          
           <Route path="/historial">
             <Historial />
           </Route>
-          <Route path="/:idRoutine" >
-            <Primer_Basico />
+          
+          <Route path="/:nameCategory/niveles" exact component={Niveles}>
           </Route>
+          
+          <Route path="/:nameCategory/:level/Seleccion" exact component={Basico}>
+          </Route>
+          
+          <Route path="/rutina/:idRoutine" exact component={Primer_Basico}>
+          </Route>
+
+          <Route path="/" exact component={() => <Redirect to="/home" />}>
+          </Route>
+
+          <Route component={() => <Redirect to="/error/404" />}>
+          </Route>
+
         </Switch>
       </Router>
     </div>

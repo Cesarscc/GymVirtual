@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import UpdateIcon from "@material-ui/icons/Update";
 
 import "./Style/Basico.css";
-import Titulo from "./Titulo";
 import Footer from "./Footer";
 import Subcategoria from "./Subcategoria";
 
@@ -40,7 +39,7 @@ function Basico() {
         })
         .catch((error) => console.log(error));
     }
-  }, [random]);
+  }, [random, match.level, match.nameCategory, ejercicios]);
 
   const getRandomExercises = () => {
     setRandom(1);
@@ -49,7 +48,7 @@ function Basico() {
   const postRoutine = () => {
     const exerciseIds = ejercicios.map((ejercicio) => ejercicio._id);
 
-    console.log(user);
+    const len = ejercicios.length - 1;
 
     return fetch(`http://localhost:4000/api/routine/createroutine`, {
       crossDomain: true,
@@ -62,66 +61,46 @@ function Basico() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (!data.error) {
-          window.location.href = `/${data._id}=0`;
+          window.location.href = `/rutina/${data._id}=0=${len}`;
         }
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    <div>
-      <Titulo />
-
-      <button className="update" onClick={getRandomExercises}>
-        <UpdateIcon fontSize="large" />
-      </button>
-
-      <div className="nota">
-        <h1 className="pregunta">¿LISTO PARA EMPEZAR?</h1>
-      </div>
-
       <div>
         <div className="GymVirtual">
           <h1>GYM VIRTUAL</h1>
         </div>
 
+        <div className="Container"> 
+          <h2 className='TittleCategory'>{match.nameCategory}</h2>
           <button className="update" onClick={getRandomExercises}><UpdateIcon fontSize= "large" /></button>
+        </div>
 
-          <div className="nota">
-              <h1 className="pregunta">¿LISTO PARA EMPEZAR?</h1>
-          </div>
+        <div className="nota">
+            <h2 className="pregunta">¿Listo para empezar?</h2>
+        </div>
 
-          <div>
-              {ejercicios && ejercicios.map((ejercicio, i=1) => (
-                  <div className="container" key={ejercicio._id}>
-                      <Subcategoria title={ejercicio.tittle} image={ejercicio.exercisePhoto} id={i = i+1}/>
-                  </div>
-              ))}
-          </div>
+        <div>
+            {ejercicios && ejercicios.map((ejercicio, i=1) => (
+                <div className="container" key={ejercicio._id}>
+                    <Subcategoria title={ejercicio.tittle} image={ejercicio.exercisePhoto} id={i = i+1}/>
+                </div>
+            ))}
+        </div>
 
-          <div>
-              <button className="boton" onClick={postRoutine}>
-                INICIAR
-              </button>
-          </div>
+        <div>
+            <button className="boton" onClick={postRoutine}>
+              INICIAR
+            </button>
+        </div>
 
-          <footer className="foot">
-              <Footer />
-          </footer>
+        <footer className="foot">
+            <Footer />
+        </footer>
       </div>
-
-      <div>
-        <button className="boton" onClick={postRoutine}>
-          INICIAR
-        </button>
-      </div>
-
-      <footer className="foot">
-        <Footer />
-      </footer>
-    </div>
   );
 }
 
