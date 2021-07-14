@@ -1,0 +1,19 @@
+.ant-upload-list-item-name {
+  visibility: hidden !important;
+}
+
+.ant-upload-span {
+  visibility: hidden !important;
+}
+
+.ant-upload-list-item-info {
+  visibility: hidden !important;
+}
+
+.ant-upload-list-text-container {
+  visibility: hidden !important;
+}
+
+.ant-upload-list.ant-upload-list-text {
+  visibility: hidden !important;
+}
