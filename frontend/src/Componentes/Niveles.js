@@ -55,7 +55,7 @@ function Niveles() {
   }
 
   if (transcript === nombres[2]) {
-    window.location.replace("http://localhost:3000/basico");
+    window.location.replace(`http://localhost:3000/${match.nameCategory}/Avanzado/Seleccion`);
   }
   if (transcript === nombres[3]) {
     window.location.replace("http://localhost:3000/basico");
