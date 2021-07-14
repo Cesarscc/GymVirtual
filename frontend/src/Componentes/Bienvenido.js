@@ -1,7 +1,7 @@
 import "./Style/Bienvenido.css";
 import React from "react";
 import "antd/dist/antd.css";
-import imagen from "../images/fondoBienvenida.png";
+import imagen from "../images/triceps.jpg";
 import titulo from "../images/titulo.png";
 import { AudioFilled } from "@ant-design/icons";
 
