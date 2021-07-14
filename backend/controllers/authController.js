@@ -49,6 +49,17 @@ exports.signup = (req, res) => {
     });
 };
 
+exports.list = (req, res) => {
+  Usuario.find().exec((err, data) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json({ data });
+  });
+};
+
 exports.signin = (req, res) => {
   Usuario.findOne({
     // Verifica si el nombre de usuario esta en la base de datos
@@ -63,7 +74,7 @@ exports.signin = (req, res) => {
         nickname: user.nickname,
         password: user.password,
       };
-      res.send(res.json(user));
+      res.send(res.json(user)); 
 
       const token = jwt.sign({ nickname }, process.env.API_KEY, {
         expiresIn: process.env.TOKEN_EXPIRES_IN,

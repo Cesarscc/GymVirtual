@@ -12,8 +12,12 @@ function Footer() {
         <HomeIcon fontSize="large" />
       </Link>
       <TurnedInNotIcon fontSize="large" />
-      <CalendarTodayIcon fontSize="large" />
-      <StarIcon fontSize="large" />
+      <Link to="/historial">
+        <CalendarTodayIcon fontSize="large" />
+      </Link>
+      <Link to="/ranking">
+        <StarIcon fontSize="large" />
+      </Link>
       <Link to="/perfil">
         <AccountBoxIcon fontSize="large" />
       </Link>
