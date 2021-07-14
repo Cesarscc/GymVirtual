@@ -11,6 +11,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 
 function Bienvenido() {
+
   const commands = [
     {
       command: "gymvirtual *",
