@@ -12,11 +12,6 @@ import SpeechRecognition, {
 
 function Bienvenido() {
 
-  let usuariobj = localStorage.getItem("usuario");
-  if (!usuariobj) {
-    window.location.href = "/login";
-  }
-
   const commands = [
     {
       command: "gymvirtual *",

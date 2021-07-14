@@ -1,0 +1,40 @@
+.titulo-logros{
+    color: white;
+    font-size: 40px;
+    margin-top: 30px;
+}
+.racha{
+    background-color: #FBD348;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.racha img{
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.días{
+    font-size: 40px;
+}
+.coins-logros{
+    background-color: #0077E4;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 5px;
+    margin-top: 30px;
+    color: white;
+}
+.descripción{
+    font-size: 20px;
+}
+.coins-logros img{
+    width: 90px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.trofeo{
+    width: 100px;
+}
