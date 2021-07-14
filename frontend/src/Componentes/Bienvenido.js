@@ -1,8 +1,8 @@
-import './Style/Bienvenido.css';
-import React from 'react';
-import 'antd/dist/antd.css';
-import imagen from '../images/fondoBienvenida.png';
-import titulo from '../images/titulo.png';
+import "./Style/Bienvenido.css";
+import React from "react";
+import "antd/dist/antd.css";
+import imagen from "../images/fondoBienvenida.png";
+import titulo from "../images/titulo.png";
 import { AudioFilled } from "@ant-design/icons";
 
 import { useRef, useState } from "react";
@@ -44,9 +44,7 @@ function Bienvenido() {
     );
   }
 
-  let nombres = [
-    "comenzar"
-  ];
+  let nombres = ["comenzar"];
 
   if (transcript === nombres[0]) {
     window.location.replace("http://localhost:3000/login");
@@ -72,38 +70,32 @@ function Bienvenido() {
   };
   //###################################
 
-
-
-
   return (
     <div className="App">
-      <img className="titulo-bienvenido" src={titulo} alt=""/>
-      <img className="fondo" src={imagen} alt=""/>
+      <img className="titulo-bienvenido" src={titulo} alt="" />
+      <img className="fondo" src={imagen} alt="" />
 
-      <div className="welcome">
-        BIENVENID@
-      </div>
+      <div className="welcome">BIENVENID@</div>
       <p>
-        Disfruta de la aplicación GYM VIRTUAL para seguir rutinas de entrenamiento de un nivel básico hasta avanzado. 
-        <br/>
+        Disfruta de la aplicación GYM VIRTUAL para seguir rutinas de
+        entrenamiento de un nivel básico hasta avanzado.
+        <br />
         ¡Simplemente todo lo que necesitas!
       </p>
 
       <div>
-        <button className="btn-micro"
-        ref={microphoneRef}
-        onClick={handleListing}
+        <button
+          className="btn-micro"
+          ref={microphoneRef}
+          onClick={handleListing}
         >
           <AudioFilled />
         </button>
       </div>
 
       <div>
-        <button className="btn">
-          COMENZAR
-        </button>
+        <button className="btn">COMENZAR</button>
       </div>
-      
     </div>
   );
 }
