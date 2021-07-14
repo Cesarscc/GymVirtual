@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, {useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UpdateIcon from "@material-ui/icons/Update";
 
 import "./Style/Basico.css";
 import Footer from "./Footer";
 import Subcategoria from "./Subcategoria";
+import Titulo from "./Titulo";
+
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+import { AudioFilled } from "@ant-design/icons";
 
 function Basico() {
   let userobj = localStorage.getItem("usuario");
@@ -69,20 +75,90 @@ function Basico() {
     }
   };
 
+
+  const commands = [
+    {
+      command: "gymvirtual *",
+      callback: (website) => {
+        //window.open("http://" + website.split(" ").join(""));
+        window.location.replace("http://localhost:3000/Piernas/Niveles");
+      },
+    },
+    {
+      command: "borrar",
+      callback: () => {
+        handleReset();
+      },
+    }
+  ];
+
+  let nombres = [
+    "iniciar",
+  ];
+
+  const { transcript, resetTranscript } = useSpeechRecognition({ commands });
+  const [isListening, setIsListening] = useState(false);
+  const microphoneRef = useRef(null);
+
+
+
+  /*useEffect(() => {
+    
+  }, [transcript,nombres]);*/
+
+
+
+
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+    return (
+      <div className="mircophone-container">
+        Browser is not Support Speech Recognition.
+      </div>
+    );
+  }
+
+  
+
+  if (transcript === nombres[0]) {
+    postRoutine();
+    //window.location.replace("http://localhost:3000/Piernas/Niveles");
+  }
+
+
+  const handleListing = () => {
+    setIsListening(true);
+    microphoneRef.current.classList.add("listening");
+    SpeechRecognition.startListening({
+      continuous: true,
+    });
+  };
+
+  const stopHandle = () => {
+    setIsListening(false);
+    microphoneRef.current.classList.remove("listening");
+    SpeechRecognition.stopListening();
+    console.log(transcript);
+  };
+  const handleReset = () => {
+    stopHandle();
+    resetTranscript();
+  };
+
   return (
       <div>
-        <div className="GymVirtual">
-          <h1>GYM VIRTUAL</h1>
+        <Titulo />
+
+        <div className="Containers">
+          <div className='TittleCategory'>
+            <div Style="margin-left:30px"><h1 Style="color:white">{match.nameCategory}</h1></div>
+            <div><button className="update" onClick={getRandomExercises}><UpdateIcon fontSize= "large" /></button></div>
+          </div>
+          
         </div>
 
-        <div className="Container"> 
-          <h2 className='TittleCategory'>{match.nameCategory}</h2>
-          <button className="update" onClick={getRandomExercises}><UpdateIcon fontSize= "large" /></button>
-        </div>
-
-        <div className="nota">
-            <h2 className="pregunta">¿Listo para empezar?</h2>
-        </div>
+      <div className="nota">
+        <h2 className="pregunta">¿LISTO PARA EMPEZAR?</h2>
+      </div>
 
         <div>
             {ejercicios && ejercicios.map((ejercicio, i=1) => (
@@ -91,6 +167,16 @@ function Basico() {
                 </div>
             ))}
         </div>
+      
+        <div>
+         <button
+              className="microphone-icon-container"
+              ref={microphoneRef}
+              onClick={handleListing}
+            >
+              <AudioFilled />
+            </button>
+      </div>
 
         <div>
             <button className="boton" onClick={postRoutine}>

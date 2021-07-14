@@ -91,6 +91,7 @@ const Primer_Basico = () => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    changeData();
   };
 
   const handleCancel = () => {

@@ -7,12 +7,14 @@
 }
 
 .update{
-    background-color:white;
-    border-radius:20px;
+    background-color:#1c1c1c;
+    color: white;
+    margin-top:5px;
+    border:none;
 }
 
 .nota{
-    margin-top:20px;
+    
 }
 
 .pregunta{
@@ -23,10 +25,10 @@
 .imagen{
     margin-left: 10px;
     margin-right: 10px;
-    background-color: black;
+    background-color: #1c1c1c;
     position: relative;
     display:inline-block;
-    margin-top: 10px;
+    margin-top: 37px;
 }
 
 .box_random img{
@@ -56,16 +58,16 @@
 
 .name{
     border: 2px solid;
-    background-color: white;
     margin:20px;
     margin-right: 10px;
     border-radius: 20px;
-    background-color: #FC683A;
+    background-color: #1c1c1c;
+    border-color: #FC683A;
 }
 
 .nombre{
-    color: black;
-    padding-top: 11px;
+    color: white;
+    padding-top: 20px;
     text-align: center;
 }
 
@@ -78,12 +80,15 @@
     padding-left: 10px;
 }
 
-.Container{
-    display: flex;
+.Containers{
     justify-content: space-between;
 }
 
 .TittleCategory{
     color: white;
-    margin-left: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin-top: 30px 
 }
