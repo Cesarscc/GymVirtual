@@ -1,5 +1,6 @@
 .niveles{
-    height:50%;
+    
+    margin-top:1px;
 }
 
 .nombre_nivel{
@@ -51,7 +52,7 @@
 .aaaa{
     display: flex;
     margin-right: 35px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .aaaaa{

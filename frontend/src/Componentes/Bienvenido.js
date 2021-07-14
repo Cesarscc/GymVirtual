@@ -93,8 +93,8 @@ function Bienvenido() {
         </button>
       </div>
 
-      <div>
-        <button className="btn">COMENZAR</button>
+      <div className="wtf">
+        <button className="btnes">COMENZAR</button>
       </div>
     </div>
   );
