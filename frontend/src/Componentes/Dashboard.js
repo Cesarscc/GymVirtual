@@ -68,7 +68,7 @@ function Dashboard() {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
-  /*if (transcript === nombres[1]) {
+  if (transcript === nombres[1]) {
     window.location.replace("http://localhost:3000/Tríceps/Niveles");
   }
 
@@ -81,7 +81,7 @@ function Dashboard() {
   if (transcript === nombres[4]) {
     localStorage.clear();
     window.location.href = "/login";
-  }*/
+  }
 
   const handleListing = () => {
     setIsListening(true);
@@ -123,14 +123,7 @@ function Dashboard() {
         </div>
       </div>
 
-      {isListening && <button onClick={stopHandle}>Stop</button>}
-      {transcript && (
-        <div className="microphone-result-container">
-          <div className="microphone-result-text">
-            <p>{transcript}</p>
-          </div>
-        </div>
-      )}
+      
 
       <Deportes />
 
