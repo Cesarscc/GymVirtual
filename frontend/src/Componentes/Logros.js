@@ -30,7 +30,7 @@ function Logros() {
             <div class="titulo-logros">
                 MIS TROFEOS
             </div>
-
+            
             <img className="trofeo" src={trofeo} alt="" />
             <img className="trofeo" src={trofeo} alt="" />
             <img className="trofeo" src={trofeo} alt="" />
