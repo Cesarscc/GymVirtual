@@ -74,7 +74,7 @@ exports.signin = (req, res) => {
         nickname: user.nickname,
         password: user.password,
       };
-      res.send(res.json(user)); 
+      res.send(res.json(user));
 
       const token = jwt.sign({ nickname }, process.env.API_KEY, {
         expiresIn: process.env.TOKEN_EXPIRES_IN,
@@ -116,36 +116,3 @@ exports.updateUsuario = async (req, res) => {
     });
   }
 };
-/* exports.updateMoney = async (req, res = response) => {
-  const authId = req.params.authId;
-
-  try {
-    const usuario = Usuario.findById(authId);
-    if (!usuario) {
-      res.status(404).json({
-        error: "Usuario no encontrada o no existe",
-      });
-    }
-
-    const dineroActual = {
-      ...req.body,
-    };
-
-    const dineroActualizado = await Usuario.findByIdAndUpdate(
-      authId,
-      dineroActual,
-      { new: true }
-    );
-
-    res.json({
-      message: "Actualizado",
-      money: dineroActualizado,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      error: "Error interno",
-    });
-  }
-};
- */

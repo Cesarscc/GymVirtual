@@ -15,13 +15,15 @@ const Primer_Basico = () => {
   if (!userobj) {
     window.location.href = "/login";
   }
+  let usuario = JSON.parse(userobj);
+  console.log(userobj);
 
   const [ex, setEx] = useState(null);
   const [item, setItem] = useState(null);
 
   let match = useParams();
-  const [id, i, len] = match.idRoutine.split("=");
-  console.log(id, i, len);
+  const [id, i, len, coins] = match.idRoutine.split("=");
+  console.log(id, i, len, coins);
 
   useEffect(() => {
     return fetch(`http://localhost:4000/api/routine/${id}`, {
@@ -83,7 +85,12 @@ const Primer_Basico = () => {
   }, [time,timerOn])
 
   function vent_emergente() {
-    setIsModalVisible(true);
+    if (i < len){
+      setIsModalVisible(true);
+    }
+    else{
+      final();
+    }
   }
 
   function reset() {
@@ -105,19 +112,49 @@ const Primer_Basico = () => {
   const changeData = () => {
     if (i < len){
       let j = parseInt(i) + 1;
-      window.location.href = `/rutina/${id}=${j}=${len}`;
+      let newCoins = parseInt(coins) + item.coins;
+      window.location.href = `/rutina/${id}=${j}=${len}=${newCoins}`;
     }
     else{
       final();
     }
   }
 
+  const passPanel = () => {
+    if (i < len){
+      let j = parseInt(i) + 1;
+      window.location.href = `/rutina/${id}=${j}=${len}=${coins}`;
+    }
+    else{
+      let secondsToGo = 5;
+      const modal = Modal.info({
+        title: '¡Nos irá mejor la próxima vez!',
+        content: `Monedas obtenidas: ${coins}`,
+        onOk() {
+          window.location.href = `/dashboard`;
+        },
+      });
+      const timer = setInterval(() => {
+        secondsToGo -= 1;
+      }, 1000);
+      setTimeout(() => {
+        clearInterval(timer);
+        modal.destroy();
+        window.location.href = `/dashboard`;
+      }, secondsToGo * 1000);
+  
+  }
+  }
+
 const final = () => {
   let secondsToGo = 5;
+  let newCoins = parseInt(coins) + item.coins;
   const modal = Modal.success({
     title: '¡Lo lograste!',
-    content: `Monedas obtenidas: ${item.coins}`,
+    content: `Monedas obtenidas: ${newCoins}`,
     onOk() {
+      usuario.coins = parseInt(usuario.coins) + newCoins;
+      updateUser(usuario._id, usuario);
       window.location.href = `/dashboard`;
     }
   });
@@ -127,10 +164,25 @@ const final = () => {
   setTimeout(() => {
     clearInterval(timer);
     modal.destroy();
+    usuario.coins = parseInt(usuario.coins) + newCoins;
+    updateUser(usuario._id, usuario);
     window.location.href = `/dashboard`;
   }, secondsToGo * 1000);
 }
 
+function updateUser(idUsuario, usuario) {
+  return fetch(`http://localhost:4000/api/auth/updUsuario/${idUsuario}`, {
+    crossDomain: true,
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(usuario),
+  })
+    .then((data) => data.json())
+    .then((json) => {
+      localStorage.removeItem("usuario");
+      localStorage.setItem("usuario", JSON.stringify(json.usuario));
+    });
+}
   return (
     <div>
         <Titulo />
@@ -164,7 +216,7 @@ const final = () => {
       </div>
 
       <div>
-        <button className="boton" onClick={changeData}>Siguiente</button>
+        <button className="boton" onClick={passPanel}>Siguiente</button>
       </div>
 
       <div>
