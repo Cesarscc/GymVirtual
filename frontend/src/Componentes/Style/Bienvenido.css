@@ -1,3 +1,39 @@
-.bienvenido{
+
+  .titulo{
+    width: 90%;
+  }
+  
+  .fondo{
+    width: 90%;
+  }
+  
+  .welcome{
+    font-size: 30px;
     color: white;
-}
+  }
+  
+  .App p{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .btn-micro{
+    background-color: black;
+    border: none;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .btn{
+    background-color: #FBD348;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 2px;
+  }
