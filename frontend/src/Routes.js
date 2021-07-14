@@ -14,6 +14,7 @@ import Registration from "./Componentes/Registration";
 import Historial from "./Componentes/Historial";
 import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
+import Bienvenido from "./Componentes/Bienvenido";
 
 export const ProtectedComponent = () => {
   return <Redirect to="http://localhost:3000/" />;
@@ -50,6 +51,9 @@ const Routes = () => {
           </Route>
           <Route path="/:idRoutine">
             <Primer_Basico />
+          </Route>
+          <Route path="/">
+            <Bienvenido />
           </Route>
         </Switch>
       </Router>

@@ -41,7 +41,7 @@ function Niveles() {
       callback: () => {
         document.body.style.background = `rgba(0, 0, 0, 0.8)`;
       },
-    },
+    }
   ];
   const { transcript, resetTranscript } = useSpeechRecognition({ commands });
   const [isListening, setIsListening] = useState(false);
@@ -57,15 +57,16 @@ function Niveles() {
 
   let nombres = ["básico", "intermedio", "avanzado", "persolaizado", "regresa"];
 
+ 
   if (transcript === nombres[0]) {
-    window.location.replace("http://localhost:3000/basico");
+    window.location.replace("http://localhost:3000/Abdominales/Básico");
   }
 
   if (transcript === nombres[1]) {
-    window.location.replace("http://localhost:3000/basico");
+    window.location.replace("http://localhost:3000/Abdominales/Intermedio");
   }
 
-  if (transcript === nombres[2]) {
+  if (transcript == nombres[2]) {
     window.location.replace("http://localhost:3000/basico");
   }
   if (transcript === nombres[3]) {
@@ -98,7 +99,11 @@ function Niveles() {
     <div className="App">
       <Titulo />
 
+
       <div className="niveles">
+        <div>
+          <h2 className="nombre_nivel">Elige el nivel para Piernas</h2>
+        </div>
         <Link to={`/${match.nameCategory}/Básico`}>
           <div className="basico">BASICO</div>
         </Link>

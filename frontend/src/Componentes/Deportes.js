@@ -25,7 +25,7 @@ const Deportes = () => {
   },[deportes]);
 
   return (
-    <div>
+    <div className="arreglo">
       {deportes && deportes.map( deporte => (
         <div className="deporteP" key={deporte._id}>
           <Deporte tittle={deporte.tittle} image={deporte.categoryPhoto} />
