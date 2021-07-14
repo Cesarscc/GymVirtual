@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import Titulo from "./Titulo";
 import "./Style/Niveles.css";
 import Footer from "./Footer";
 import { Link, useParams } from "react-router-dom";
@@ -66,7 +65,7 @@ function Niveles() {
     window.location.replace("http://localhost:3000/Abdominales/Intermedio");
   }
 
-  if (transcript == nombres[2]) {
+  if (transcript === nombres[2]) {
     window.location.replace("http://localhost:3000/basico");
   }
   if (transcript === nombres[3]) {
@@ -97,23 +96,24 @@ function Niveles() {
 
   return (
     <div className="App">
-      <Titulo />
-
+      <div className="GymVirtual">
+        <h1>GYM VIRTUAL</h1>
+      </div>
 
       <div className="niveles">
         <div>
-          <h2 className="nombre_nivel">Elige el nivel para Piernas</h2>
+          <h2 className="nombre_nivel">Elige el nivel para {match.nameCategory}</h2>
         </div>
-        <Link to={`/${match.nameCategory}/Básico`}>
+        <Link to={`/${match.nameCategory}/Básico/Seleccion`}>
           <div className="basico">BASICO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Intermedio`}>
+        <Link to={`/${match.nameCategory}/Intermedio/Seleccion`}>
           <div className="intermedio">INTERMEDIO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Avanzado`}>
+        <Link to={`/${match.nameCategory}/Avanzado/Seleccion`}>
           <div className="avanzado">AVANZADO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Personal`}>
+        <Link to={`/${match.nameCategory}/Personal/Seleccion`}>
           <div className="personalizado">Personalizado</div>
         </Link>
       </div>

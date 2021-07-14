@@ -63,7 +63,7 @@ exports.signin = (req, res) => {
         nickname: user.nickname,
         password: user.password,
       };
-      res.send(res.json(user));
+      res.send(res.json(user)); 
 
       const token = jwt.sign({ nickname }, process.env.API_KEY, {
         expiresIn: process.env.TOKEN_EXPIRES_IN,
