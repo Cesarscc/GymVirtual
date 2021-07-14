@@ -94,6 +94,11 @@ const Login = () => {
         </div>
         <div></div>
       </Form>
+
+      <div>
+        <br />
+        <button><a href="http://localhost:3000/">volver</a></button>
+      </div>
     </div>
   );
 };

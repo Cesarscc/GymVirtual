@@ -13,6 +13,11 @@
   text-shadow: 2px 2px 2px #9b9b9b;
 }
 
+.microfono{
+  display: flex;
+  justify-content: space-around;
+}
+
 
 .deporteP{
   background-color: #c00650;
@@ -26,13 +31,17 @@
   border: 2px solid ;
 }
 
+.arreglo{
+  height:2%;
+}
+
 .deporte{
   background-color: #c00650;
   border-radius: 20px;
   margin: 0.5px;
   padding: 5px;
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
-  /*display: flex*/
+  /*display: flex;*/
   border: 2px solid;
 }
 
@@ -60,7 +69,7 @@
 
 
 .box img{
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 @supports(object-fit: cover){

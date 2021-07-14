@@ -16,12 +16,21 @@
     position: relative;
     font-size:30px;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
+
+  /*.MuiSvgIcon-root{
+    color: #fff;
+  }*/
+
+  
+
   .microphone-icon-container.listening::before {
     content: "";
     width: 100px;
     height: 100px;
-    background-color: #ffffff81;
+    background-color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -40,6 +49,10 @@
     }
   }
   
+  .anticon{
+    color: #fff;
+  }
+
   .microphone-icon {
     width: 100%;
     height: 100%;
