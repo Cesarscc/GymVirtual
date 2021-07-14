@@ -65,7 +65,7 @@ function Niveles() {
     window.location.replace("http://localhost:3000/Abdominales/Intermedio");
   }
 
-  if (transcript == nombres[2]) {
+  if (transcript === nombres[2]) {
     window.location.replace("http://localhost:3000/basico");
   }
   if (transcript === nombres[3]) {
@@ -99,7 +99,6 @@ function Niveles() {
       <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
-
 
       <div className="niveles">
         <div>

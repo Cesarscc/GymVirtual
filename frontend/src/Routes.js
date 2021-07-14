@@ -15,7 +15,6 @@ import Historial from "./Componentes/Historial";
 import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
 import Error from "./Componentes/Error";
-import Home from "./Componentes/Home";
 import Bienvenido from "./Componentes/Bienvenido";
 
 const Routes = () => {
@@ -26,7 +25,7 @@ const Routes = () => {
           <Route path="/error/404" exact component={Error}>
           </Route>
 
-          <Route path="/home" exact component={Home}>
+          <Route path="/home" exact component={Bienvenido}>
           </Route>
 
           <Route path="/login" exact component={Login}>

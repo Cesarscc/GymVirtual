@@ -13,7 +13,7 @@ const Deporte = (props) => {
       <Link to={`/${props.tittle}/Niveles`}> 
         <div className="conten">
           <div className="box">
-            <img src={props.image} />
+            <img src={props.image} alt="Deporte"/>
           </div>
         </div>
       </Link>

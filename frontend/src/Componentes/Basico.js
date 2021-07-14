@@ -45,27 +45,28 @@ function Basico() {
     setRandom(1);
   };
 
-  const postRoutine = () => {
+  const postRoutine = async () => {
     const exerciseIds = ejercicios.map((ejercicio) => ejercicio._id);
 
     const len = ejercicios.length - 1;
 
-    return fetch(`http://localhost:4000/api/routine/createroutine`, {
-      crossDomain: true,
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        exerciseIds: exerciseIds,
-        userId: user._id,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.error) {
-          window.location.href = `/rutina/${data._id}=0=${len}`;
-        }
-      })
-      .catch((error) => console.log(error));
+    try {
+      const response = await fetch(`http://localhost:4000/api/routine/createroutine`, {
+        crossDomain: true,
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          exerciseIds: exerciseIds,
+          userId: user._id,
+        }),
+      });
+      const data = await response.json();
+      if (!data.error) {
+        window.location.href = `/rutina/${data._id}=0=${len}`;
+      }
+    } catch (error) {
+      return console.log(error);
+    }
   };
 
   return (
