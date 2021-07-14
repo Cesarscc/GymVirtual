@@ -16,6 +16,7 @@ import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
 import Error from "./Componentes/Error";
 import Home from "./Componentes/Home";
+import Bienvenido from "./Componentes/Bienvenido";
 
 const Routes = () => {
   return (

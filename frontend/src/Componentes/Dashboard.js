@@ -9,6 +9,8 @@ import Footer from "./Footer";
 import "./Style/prueba.css";
 import { AudioFilled } from "@ant-design/icons";
 
+
+
 function Dashboard() {
   let usuariobj = localStorage.getItem("usuario");
   if (!usuariobj) {
@@ -66,8 +68,8 @@ function Dashboard() {
     window.location.replace("http://localhost:3000/Piernas/Niveles");
   }
 
-  if (transcript === nombres[1]) {
-    window.location.replace("http://localhost:3000/Triceps/Niveles");
+  /*if (transcript === nombres[1]) {
+    window.location.replace("http://localhost:3000/Tríceps/Niveles");
   }
 
   if (transcript === nombres[2]) {
@@ -79,7 +81,7 @@ function Dashboard() {
   if (transcript === nombres[4]) {
     localStorage.clear();
     window.location.href = "/login";
-  }
+  }*/
 
   const handleListing = () => {
     setIsListening(true);
@@ -106,13 +108,45 @@ function Dashboard() {
         <h1>GYM VIRTUAL</h1>
       </div>
 
-      <div>
+      <div className="microfono">
         <h2 className="mensaje">¡Hora de Entrenar!</h2>
+        <div>
+          <div>
+            <button
+              className="microphone-icon-container"
+              ref={microphoneRef}
+              onClick={handleListing}
+            >
+              <AudioFilled />
+            </button>
+          </div>
+        </div>
       </div>
+
+      {isListening && <button onClick={stopHandle}>Stop</button>}
+      {transcript && (
+        <div className="microphone-result-container">
+          <div className="microphone-result-text">
+            <p>{transcript}</p>
+          </div>
+        </div>
+      )}
 
       <Deportes />
 
-      <div>
+      
+
+      <footer className="foot">
+        <Footer />
+      </footer>
+    </div>
+  );
+}
+
+export default Dashboard;
+
+
+/*<div>
         <div>
           <button
             className="microphone-icon-container"
@@ -136,12 +170,4 @@ function Dashboard() {
           </div>
         </div>
       )}
-
-      <footer className="foot">
-        <Footer />
-      </footer>
-    </div>
-  );
-}
-
-export default Dashboard;
+*/
