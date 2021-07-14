@@ -16,53 +16,59 @@ import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
 import Error from "./Componentes/Error";
 import Bienvenido from "./Componentes/Bienvenido";
-
+import Logros from "./Componentes/Logros";
 const Routes = () => {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/error/404" exact component={Error}>
-          </Route>
+          <Route path="/error/404" exact component={Error}></Route>
 
-          <Route path="/home" exact component={Bienvenido}>
-          </Route>
+          <Route path="/home" exact component={Bienvenido}></Route>
 
-          <Route path="/login" exact component={Login}>
-          </Route>
-          
-          <Route path="/registrarse" exact component={Registration}>
-          </Route>
-          
-          <Route path="/ranking" exact component={Ranking}>
-          </Route>
-          
-          <Route path="/dashboard" exact component={Dashboard}>
-          </Route>
+          <Route path="/login" exact component={Login}></Route>
+
+          <Route path="/registrarse" exact component={Registration}></Route>
+
+          <Route path="/ranking" exact component={Ranking}></Route>
+
+          <Route path="/dashboard" exact component={Dashboard}></Route>
 
           <Route path="/perfil">
             <Perfil />
           </Route>
-          
+
           <Route path="/historial">
             <Historial />
           </Route>
-          
-          <Route path="/:nameCategory/niveles" exact component={Niveles}>
-          </Route>
-          
-          <Route path="/:nameCategory/:level/Seleccion" exact component={Basico}>
-          </Route>
-          
-          <Route path="/rutina/:idRoutine" exact component={Primer_Basico}>
-          </Route>
 
-          <Route path="/" exact component={() => <Redirect to="/home" />}>
-          </Route>
+          <Route
+            path="/:nameCategory/niveles"
+            exact
+            component={Niveles}
+          ></Route>
 
-          <Route component={() => <Redirect to="/error/404" />}>
-          </Route>
+          <Route
+            path="/:nameCategory/:level/Seleccion"
+            exact
+            component={Basico}
+          ></Route>
 
+          <Route
+            path="/rutina/:idRoutine"
+            exact
+            component={Primer_Basico}
+          ></Route>
+
+          <Route path="/logros" exact component={Logros}></Route>
+
+          <Route
+            path="/"
+            exact
+            component={() => <Redirect to="/home" />}
+          ></Route>
+
+          <Route component={() => <Redirect to="/error/404" />}></Route>
         </Switch>
       </Router>
     </div>

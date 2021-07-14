@@ -6,6 +6,7 @@ import Datos from "./Datos";
 import { Button } from "antd";
 import "antd/dist/antd.css";
 import Footer from "./Footer";
+import Titulo from "./Titulo";
 const crypto = require("crypto");
 
 function Perfil() {
@@ -70,9 +71,7 @@ function Perfil() {
 
   return (
     <div className="App">
-      <div className="GymVirtual">
-        <h1>GYM VIRTUAL</h1>
-      </div>
+      <Titulo />
 
       <FotoPerfil foto={photo} recojoData={onChangePhoto} />
       <br />
