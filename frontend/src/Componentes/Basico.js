@@ -157,7 +157,18 @@ function Basico() {
         </div>
 
       <div className="nota">
-        <h2 className="pregunta">¿LISTO PARA EMPEZAR?</h2>
+        <div className="pregunta">
+          ¿Listo para empezar?
+        </div>
+        <div className="boton-basico">
+          <button
+              className="microphone-icon-container"
+              ref={microphoneRef}
+              onClick={handleListing}
+            >
+              <AudioFilled />
+            </button>
+      </div>
       </div>
 
         <div>
@@ -168,15 +179,6 @@ function Basico() {
             ))}
         </div>
       
-        <div>
-         <button
-              className="microphone-icon-container"
-              ref={microphoneRef}
-              onClick={handleListing}
-            >
-              <AudioFilled />
-            </button>
-      </div>
 
         <div>
             <button className="boton" onClick={postRoutine}>

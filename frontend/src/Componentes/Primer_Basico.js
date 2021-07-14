@@ -3,9 +3,12 @@ import Footer from "./Footer";
 import "./Style/Primer_basico.css";
 import "./Style/Basico.css";
 import { useParams } from "react-router-dom";
+import Titulo from "./Titulo"
 
 import { Modal } from "antd";
 import CancelIcon from '@material-ui/icons/Cancel';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import RestoreIcon from '@material-ui/icons/Restore';
 
 const Primer_Basico = () => {
   let userobj = localStorage.getItem("usuario");
@@ -55,7 +58,7 @@ const Primer_Basico = () => {
     }
   }, [ex, i]);
 
-  const [time, setTime] = useState(3000)  //el numero representa 300 segundos = 5 min
+  const [time, setTime] = useState(10000)  //el numero representa 300 segundos = 5 min
   const [timerOn, setTimeOn] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -67,7 +70,7 @@ const Primer_Basico = () => {
         setTime(time => time - 10)
       }, 10)
     } else {
-      setTime(3000);
+      setTime(10000);
       clearInterval(interval);
     }
 
@@ -182,9 +185,7 @@ function updateUser(idUsuario, usuario) {
 }
   return (
     <div>
-        <div className="GymVirtual">
-          <h1>GYM VIRTUAL</h1>
-        </div>
+        <Titulo />
 
       <h1 className="primero">{item && item.tittle}</h1>
 
@@ -202,15 +203,16 @@ function updateUser(idUsuario, usuario) {
 
       <div>
         {!timerOn && (
-          <button className="boto" onClick={() => setTimeOn(true)} >Iniciar</button>
+          <button className="boto" onClick={() => setTimeOn(true)} ><PlayCircleOutlineIcon fontSize="large"/></button>
         )}
         {timerOn && (
-          <button className="boto" onClick={() => setTimeOn(false)} >Reiniciar</button>
+          <button className="boto" onClick={() => setTimeOn(false)} ><RestoreIcon fontSize="large" /></button>
         )}
       </div>
 
       <div className="premio">
-        <h3 className="premio">Recompensa: {item && item.coins}</h3>
+        <h3 className="premio">Recompensa:</h3>
+        {item && item.coins} <p>puntos</p>
       </div>
 
       <div>
