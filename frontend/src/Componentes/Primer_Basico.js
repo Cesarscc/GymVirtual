@@ -12,6 +12,8 @@ const Primer_Basico = () => {
   if (!userobj) {
     window.location.href = "/login";
   }
+  let usuario = JSON.parse(userobj);
+  console.log(userobj);
 
   const [ex, setEx] = useState(null);
   const [item, setItem] = useState(null);
@@ -121,10 +123,25 @@ const Primer_Basico = () => {
       window.location.href = `/rutina/${id}=${j}=${len}=${coins}`;
     }
     else{
-      final();
-    }
+      let secondsToGo = 5;
+      const modal = Modal.info({
+        title: '¡Nos irá mejor la próxima vez!',
+        content: `Monedas obtenidas: ${coins}`,
+        onOk() {
+          window.location.href = `/dashboard`;
+        },
+      });
+      const timer = setInterval(() => {
+        secondsToGo -= 1;
+      }, 1000);
+      setTimeout(() => {
+        clearInterval(timer);
+        modal.destroy();
+        window.location.href = `/dashboard`;
+      }, secondsToGo * 1000);
+  
   }
-
+  }
 
 const final = () => {
   let secondsToGo = 5;
@@ -133,6 +150,8 @@ const final = () => {
     title: '¡Lo lograste!',
     content: `Monedas obtenidas: ${newCoins}`,
     onOk() {
+      usuario.coins = parseInt(usuario.coins) + newCoins;
+      updateUser(usuario._id, usuario);
       window.location.href = `/dashboard`;
     }
   });
@@ -142,10 +161,25 @@ const final = () => {
   setTimeout(() => {
     clearInterval(timer);
     modal.destroy();
+    usuario.coins = parseInt(usuario.coins) + newCoins;
+    updateUser(usuario._id, usuario);
     window.location.href = `/dashboard`;
   }, secondsToGo * 1000);
 }
 
+function updateUser(idUsuario, usuario) {
+  return fetch(`http://localhost:4000/api/auth/updUsuario/${idUsuario}`, {
+    crossDomain: true,
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(usuario),
+  })
+    .then((data) => data.json())
+    .then((json) => {
+      localStorage.removeItem("usuario");
+      localStorage.setItem("usuario", JSON.stringify(json.usuario));
+    });
+}
   return (
     <div>
         <div className="GymVirtual">
