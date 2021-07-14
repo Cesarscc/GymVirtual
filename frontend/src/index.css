@@ -5,17 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: #1c1c1c;
 }
 
 .Todo {
-  background-color: black;
+  background-color: #1c1c1c;
   min-height: 100vh;
   width: 100%;
-  padding-bottom: 20px;
 }
 .GymVirtual {
-  color: black;
+  color: #1c1c1c;
   text-align: center;
   background-color: white;
   font-size: 25px;

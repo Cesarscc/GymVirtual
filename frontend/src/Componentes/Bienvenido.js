@@ -58,6 +58,10 @@ function Bienvenido() {
     });
   };
 
+  const VeLogin = () => {
+    window.location.replace("http://localhost:3000/login");
+  };
+
   const stopHandle = () => {
     setIsListening(false);
     microphoneRef.current.classList.remove("listening");
@@ -94,7 +98,9 @@ function Bienvenido() {
       </div>
 
       <div>
-        <button className="btn">COMENZAR</button>
+        <button onClick={VeLogin} className="btn">
+          COMENZAR
+        </button>
       </div>
     </div>
   );
