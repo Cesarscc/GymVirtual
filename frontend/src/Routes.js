@@ -16,6 +16,7 @@ import Basico from "./Componentes/Basico";
 import Primer_Basico from "./Componentes/Primer_Basico";
 import Error from "./Componentes/Error";
 import Bienvenido from "./Componentes/Bienvenido";
+import Logros from "./Componentes/Logros";
 
 const Routes = () => {
   return (
@@ -47,6 +48,11 @@ const Routes = () => {
           <Route path="/historial">
             <Historial />
           </Route>
+          <Route path="/logros">
+            <Logros />
+          </Route>
+          <Route path="/:idRoutine">
+            <Primer_Basico />
           
           <Route path="/:nameCategory/niveles" exact component={Niveles}>
           </Route>
