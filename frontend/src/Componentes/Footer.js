@@ -11,7 +11,9 @@ function Footer() {
       <Link to="/dashboard">
         <HomeIcon fontSize="large" />
       </Link>
-      <TurnedInNotIcon fontSize="large" />
+      <Link to="/Logros">
+        <TurnedInNotIcon fontSize="large" />
+      </Link>
       <Link to="/historial">
         <CalendarTodayIcon fontSize="large" />
       </Link>
