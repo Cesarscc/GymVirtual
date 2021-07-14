@@ -32,7 +32,9 @@ function Perfil() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usuario),
     })
-      .then((data) => data.json())
+      .then((data) => {
+        data.json();
+      })
       .then(console.log);
   }
 
@@ -59,20 +61,25 @@ function Perfil() {
       .toString(`hex`);
     updateUser(usuario._id, usuario);
   }
-
+  function onChangePhoto(base64String) {
+    console.log("on change foto", base64String);
+    usuario.photo = base64String;
+    updateUser(usuario._id, usuario);
+  }
   let nombre = usuario.first_name;
   let apellido = usuario.last_name;
   let correo = usuario.email;
   let nickname = usuario.nickname;
   let passw = "******";
-  let phot = usuario.photo;
+  let photo = usuario.photo;
+
   return (
     <div className="App">
-      <div className="titulo">
+      <div className="GymVirtual">
         <h1>GYM VIRTUAL</h1>
       </div>
 
-      <FotoPerfil foto={phot} />
+      <FotoPerfil foto={photo} recojoData={onChangePhoto} />
       <br />
       <h2>
         <Datos recojoData={onChangeNombre} info={nombre} />

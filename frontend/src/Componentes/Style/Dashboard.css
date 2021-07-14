@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  background-color:black;
+  background-color: black;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   padding-top: 7px;
 }
 
-.titulo{
+.titulo {
   background-color: white;
   color: black;
   font-size: 10px;
@@ -20,15 +20,15 @@
 
 
 .deporteP{
-  background-color: #c00650;
+  background-color: #EB4343;
   
   border-radius: 20px;
   margin: 15px;
   padding: 0.5px;
-  
+
   box-shadow: 1px 0 4px rgba(64, 85, 5, 0.2); /*agregamos sombra*/
   /*display: flex;*/ /*para que no se superpongan deberia ser block*/
-  border: 2px solid ;
+  border: 2px solid;
 }
 
 .arreglo{
@@ -45,12 +45,12 @@
   border: 2px;
 }
 
-.link{
+.link {
   text-decoration: none;
 }
 
-.conten{
-  background-color: #c00650;
+.conten {
+  background-color: #eb4343;
   padding-top: 2px;
   text-align: center;
   line-height: 20px;
@@ -68,16 +68,15 @@
   width: 50%;
   height: auto;
 }
-@supports(object-fit: cover){
-    .box img{
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-    }
+@supports (object-fit: cover) {
+  .box img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 
-
-.foot{
+.foot {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -86,7 +85,7 @@
   height: 60px;
 }
 
-.footerIcons{
+.footerIcons {
   padding-top: 10px;
   padding-left: 20px;
   display: flex;

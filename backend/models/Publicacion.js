@@ -37,3 +37,4 @@ const publicacionSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Publicacion", publicacionSchema)
+ 

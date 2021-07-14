@@ -1,0 +1,51 @@
+
+  .titulo-ranking{
+    font-size: 30px;
+    color: white;
+  }
+  .usuario2{
+    width: 90%;
+    margin-left: 5%;
+    
+  }
+  .usuario2{
+    margin-top: 20px;
+  }
+  .usuario div{
+    float: left;
+  }
+  .nro{
+    background-color: #FBD348;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: black;
+    margin-top: 30px;
+  }
+  .np{
+    background-color: #0077E4;
+    height: 50px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 5px;
+    width: 75%;
+    font-size: 20px;
+    display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+      margin-top: 30px;
+  }
+  .nombre-ranking{
+    font-size: 20px;
+    padding-top: 8px;
+  }
+  .ganancia{
+    margin-left: 20px;
+    font-size: 30px;
+  }
+  .coin img{
+    width: 50px;
+    padding-top: 5px;
+  }
