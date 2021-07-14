@@ -1,5 +1,4 @@
 import React from "react";
-//import imagenPerfil from './fp.jpg';
 import { Avatar } from "antd";
 import "antd/dist/antd.css";
 import { CameraFilled } from "@ant-design/icons";
