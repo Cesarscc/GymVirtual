@@ -164,7 +164,7 @@ const final = () => {
       </div>
 
       <div>
-        <button className="boton" onClick={changeData}>Siguiente</button>
+        <button type="button" class="btn btn-warning btn-lg" onClick={changeData}>Siguiente</button>
       </div>
 
       <div>

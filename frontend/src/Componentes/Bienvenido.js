@@ -96,9 +96,9 @@ function Bienvenido() {
           <AudioFilled />
         </button>
       </div>
-
+      <br/>
       <div>
-        <button onClick={VeLogin} className="btnes">
+        <button type="button" class="btn btn-outline-primary" onClick={VeLogin}>
           COMENZAR
         </button>
       </div>
