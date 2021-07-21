@@ -64,11 +64,20 @@ function Basico() {
         body: JSON.stringify({
           exerciseIds: exerciseIds,
           userId: user._id,
+          exercises: ejercicios,
         }),
       });
       const data = await response.json();
       if (!data.error) {
-        window.location.href = `/rutina/${data._id}=0=${len}=0`;
+        //console.log(data);
+        const rutina = {
+          ejercicios: data.exerciseIds,
+          tamaño: data.exerciseIds.length - 1,
+          ganancia: 0
+        }
+        //console.log(rutina);
+        localStorage.setItem("rutina", JSON.stringify(rutina));
+        window.location.href = `/rutina/${data._id}/0`;
       }
     } catch (error) {
       return console.log(error);

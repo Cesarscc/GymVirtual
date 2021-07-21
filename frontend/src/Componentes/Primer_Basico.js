@@ -12,18 +12,26 @@ import RestoreIcon from '@material-ui/icons/Restore';
 
 const Primer_Basico = () => {
   let userobj = localStorage.getItem("usuario");
+  let routineobj = localStorage.getItem("rutina");
+  
   if (!userobj) {
     window.location.href = "/login";
   }
-  let usuario = JSON.parse(userobj);
-  console.log(userobj);
 
+  let usuario = JSON.parse(userobj);
+  let rutina = JSON.parse(routineobj);
+
+  const coins = rutina.ganancia;
+  const len = rutina.tamaño;
+  
   const [ex, setEx] = useState(null);
   const [item, setItem] = useState(null);
 
   let match = useParams();
-  const [id, i, len, coins] = match.idRoutine.split("=");
-  console.log(id, i, len, coins);
+  const id = match.idRoutine;
+  const i = match.idExercise;
+  
+  console.log(id, i);
 
   useEffect(() => {
     return fetch(`http://localhost:4000/api/routine/${id}`, {
@@ -58,7 +66,7 @@ const Primer_Basico = () => {
     }
   }, [ex, i]);
 
-  const [time, setTime] = useState(10000)  //el numero representa 300 segundos = 5 min
+  const [time, setTime] = useState(2000)  //el numero representa 300 segundos = 5 min
   const [timerOn, setTimeOn] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -70,8 +78,10 @@ const Primer_Basico = () => {
         setTime(time => time - 10)
       }, 10)
     } else {
-      setTime(10000);
-      clearInterval(interval);
+      if(item !== null){
+        setTime(parseInt(item.time) * 1000);
+        clearInterval(interval);
+      }
     }
 
     if (time === 0) { // segundos = cero
@@ -82,7 +92,7 @@ const Primer_Basico = () => {
 
     return ()=>clearInterval(interval)
 
-  }, [time,timerOn])
+  }, [time,timerOn, item])
 
   function vent_emergente() {
     if (i < len){
@@ -113,7 +123,13 @@ const Primer_Basico = () => {
     if (i < len){
       let j = parseInt(i) + 1;
       let newCoins = parseInt(coins) + item.coins;
-      window.location.href = `/rutina/${id}=${j}=${len}=${newCoins}`;
+      const rutina = {
+        tamaño: ex.exerciseIds.length - 1,
+        ganancia: newCoins
+      }
+      //console.log(rutina);
+      localStorage.setItem("rutina", JSON.stringify(rutina));
+      window.location.href = `/rutina/${id}/${j}`;
     }
     else{
       final();
@@ -123,7 +139,7 @@ const Primer_Basico = () => {
   const passPanel = () => {
     if (i < len){
       let j = parseInt(i) + 1;
-      window.location.href = `/rutina/${id}=${j}=${len}=${coins}`;
+      window.location.href = `/rutina/${id}/${j}`;
     }
     else{
       let secondsToGo = 5;
@@ -164,10 +180,10 @@ const final = () => {
   setTimeout(() => {
     clearInterval(timer);
     modal.destroy();
-    usuario.coins = parseInt(usuario.coins) + newCoins;
-    updateUser(usuario._id, usuario);
-    window.location.href = `/dashboard`;
   }, secondsToGo * 1000);
+  usuario.coins = parseInt(usuario.coins) + newCoins;
+  updateUser(usuario._id, usuario);
+  window.location.href = `/dashboard`;
 }
 
 function updateUser(idUsuario, usuario) {
@@ -195,9 +211,9 @@ function updateUser(idUsuario, usuario) {
 
       <div>
         <div className="cronometro">
-          <span> {("0" + Math.floor((time / 60000) % 60)).slice(-2)} : </span>
-          <span> {("0" + Math.floor((time / 1000) % 60)).slice(-2)} : </span>
-          <span> {("0" + ((time/10)%100)).slice(-2)} </span>
+          <span> {item && ("0" + Math.floor((time / 60000) % 60)).slice(-2)} : </span>
+          <span> {item && ("0" + Math.floor((time / 1000) % 60)).slice(-2)} : </span>
+          <span> {item && ("0" + ((time/10)%100)).slice(-2)} </span>
         </div>
       </div>
 

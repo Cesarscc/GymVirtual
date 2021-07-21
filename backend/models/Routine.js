@@ -11,7 +11,12 @@ const routineSchema = new mongoose.Schema(
         userId: {
             type: String,
             required: true
-        }
+        },
+
+        exercises:{
+            type: Array,
+            required: false
+        },
     },
         {timestamps: true},
 );

@@ -1,4 +1,5 @@
 const Routine = require('../models/Routine');
+const Exercise = require('../models/Exercise');
 const {errorHandler} = require('../helpers/dberrorHandler');
 
 exports.create = (req,res) => {
@@ -58,10 +59,41 @@ exports.routineById = (req, res, next, id) => {
     })
 }
 
+exports.exercisesByIdRoutine = (req, res) => {
+    let id = req.params.id;
+
+    Routine.findById(id).exec((err, routine)=>{
+        if(err || !routine){
+            return res.status(400).json({
+                error: "Routine no encontrada o no existe"
+            })
+        }
+
+        const exs = routine.exerciseIds;
+        const newexs = Array(exs.length);
+        console.log(exs);
+        let i = 0;
+        for (i = 0; i < exs.length; i++) { 
+            Exercise.findById(exs[i]).exec((err, exercise)=>{
+                if(err || !exercise){
+                    return res.status(400).json({
+                        error: "Exercise no encontrada o no existe"
+                    })
+                }
+                else{
+                    newexs[i] = exercise;
+                }
+                
+            })
+        }       
+        res.json({newexs});
+    })
+}
+
 exports.routinebyuser = (req,res) => {
     let user = req.params.user;
     console.log(user);
-    Routine.find({user: user}).exec((err,data)=>{
+    Routine.find({userId: user}).exec((err,data)=>{
         
         if(err){
             return res.status(400).json({
@@ -72,4 +104,3 @@ exports.routinebyuser = (req,res) => {
         res.json({data});
     })
 }
-

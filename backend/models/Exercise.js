@@ -23,12 +23,7 @@ const exerciseSchema = new mongoose.Schema(
         required: true
         },
 
-        reps: {
-            type: Number,
-            required: true
-        },  
-
-        rest: {
+        time: {
             type: Number,
             required: true
         },  

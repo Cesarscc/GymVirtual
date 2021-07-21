@@ -26,7 +26,7 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (!data.error) {
-          localStorage.setItem("usuario", JSON.stringify(data));
+          localStorage.setItem("usuario", JSON.stringify(data.usuario));
           window.location.href = "/dashboard";
         }
       })

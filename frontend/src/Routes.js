@@ -55,7 +55,7 @@ const Routes = () => {
           ></Route>
 
           <Route
-            path="/rutina/:idRoutine"
+            path="/rutina/:idRoutine/:idExercise"
             exact
             component={Primer_Basico}
           ></Route>
