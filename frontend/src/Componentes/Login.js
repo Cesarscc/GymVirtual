@@ -42,7 +42,7 @@ const Login = () => {
         <h1 className="login">INICIAR SESION</h1>
       </div>
       <Form className="Llena" {...layout} name="basic" onFinish={onFinish}>
-        <div style={{ color: "white", marginLeft: 30 }}>Usuario:</div>
+        <div style={{ color: "white", fontSize:20 }}>Usuario:</div>
         <Form.Item
           name="username"
           rules={[
@@ -52,10 +52,10 @@ const Login = () => {
             },
           ]}
         >
-          <Input />
+          <Input style={{ height: 40, fontSize: 18, marginRight: 25}} />
         </Form.Item>
 
-        <div style={{ color: "white", marginLeft: 30 }}>Contraseña:</div>
+        <div style={{ color: "white", marginLeft: 10, fontSize: 20 }}>Contraseña:</div>
         <Form.Item
           name="password"
           rules={[
@@ -65,7 +65,7 @@ const Login = () => {
             },
           ]}
         >
-          <Input.Password />
+          <Input.Password style={{  height: 40, fontSize: 18, marginRight: 25 }}/>
         </Form.Item>
         <div>
           <div>
