@@ -36,7 +36,7 @@ function Historial() {
           }
         })
         .catch((error) => console.log(error));
-  }, [setAllRoutines]);
+  }, [setAllRoutines, user]);
 
 
   const showModal = (value) => {
