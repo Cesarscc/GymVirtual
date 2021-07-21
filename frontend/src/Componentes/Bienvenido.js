@@ -98,7 +98,7 @@ function Bienvenido() {
       </div>
 
       <div>
-        <button onClick={VeLogin} className="btn">
+        <button onClick={VeLogin} className="btnes">
           COMENZAR
         </button>
       </div>
