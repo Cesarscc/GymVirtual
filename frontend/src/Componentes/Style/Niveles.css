@@ -6,6 +6,7 @@
 .nombre_nivel{
     color: white;
     margin: 5px;
+    margin-top: 20px;
 }
 
 .basico{
@@ -56,5 +57,6 @@
 }
 
 .aaaaa{
-    margin-top:25px;
+    margin-top:0px;
+    font-size: 50px;
 }

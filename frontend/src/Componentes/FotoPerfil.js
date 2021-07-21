@@ -28,7 +28,7 @@ const FotoPerfil = (props) => {
           return false;
         }}
       >
-        <Button
+        <Button 
           style={{ minWidth: 50, background: "#636262" }}
           icon={<CameraFilled />}
         >
