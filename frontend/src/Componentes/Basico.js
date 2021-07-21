@@ -68,7 +68,7 @@ function Basico() {
       });
       const data = await response.json();
       if (!data.error) {
-        window.location.href = `/rutina/${data._id}=0=${len}`;
+        window.location.href = `/rutina/${data._id}=0=${len}=0`;
       }
     } catch (error) {
       return console.log(error);
@@ -179,9 +179,10 @@ function Basico() {
             ))}
         </div>
       
-
+      <br />
+      <br/>
         <div>
-            <button className="boton" onClick={postRoutine}>
+            <button type="button" class="btn btn-danger" onClick={postRoutine}>
               INICIAR
             </button>
         </div>

@@ -39,7 +39,7 @@ const Login = () => {
         <h1>GYM VIRTUAL</h1>
       </div>
       <div className="Log">
-        <h1 className="login">LOGIN</h1>
+        <h1 className="login">INICIAR SESION</h1>
       </div>
       <Form className="Llena" {...layout} name="basic" onFinish={onFinish}>
         <div style={{ color: "white", fontSize:20 }}>Usuario:</div>
@@ -67,33 +67,40 @@ const Login = () => {
         >
           <Input.Password style={{  height: 40, fontSize: 18, marginRight: 25 }}/>
         </Form.Item>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button
+        <div>
+          <div>
+          <Button type="button" class="btn btn-outline-light"
             type="primary"
             shape="round"
             size="large"
             htmlType="submit"
-            style={{ marginRight: 30, minWidth: 160, background: "#FC683A" }}
+            style={{  minWidth: 160, background: "#FC683A" }}
           >
             Ingresar
           </Button>
-          <Button
+          </div>
+          <br/>
+          <div>
+          <Button type="button" class="btn btn-outline-light"
             href="/registrarse"
             type="primary"
             shape="round"
             size="large"
-            style={{ minWidth: 160, background: "#0077E4" }}
+            style={{ minWidth: 160, background: "#0000" }}
           >
             Registrarse
           </Button>
+          </div>
+          
+          
         </div>
-        <div></div>
+        
       </Form>
 
       <div>
         <br />
-        <button>
-          <a href="http://localhost:3000/">volver</a>
+        <button type="button" class="btn btn-outline-light">
+          <a href="http://localhost:3000/">HOME</a>
         </button>
       </div>
     </div>

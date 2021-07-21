@@ -87,7 +87,7 @@ function Niveles() {
     <div className="App">
       
       <Titulo />
-
+      <br/>
       <div className="niveles">
         <div className="aaaa">
           <h2 className="nombre_nivel">Elige el nivel para {match.nameCategory}</h2>
@@ -101,8 +101,13 @@ function Niveles() {
             <AudioFilled />
           </button>
         </div>
-      
+          <br />
+          <br />
+          <br />
+          <br />
+          
         </div>
+
         <Link to={`/${match.nameCategory}/Básico/Seleccion`}>
           <div className="basico">BASICO</div>
         </Link>
@@ -112,9 +117,7 @@ function Niveles() {
         <Link to={`/${match.nameCategory}/Avanzado/Seleccion`}>
           <div className="avanzado">AVANZADO</div>
         </Link>
-        <Link to={`/${match.nameCategory}/Personal/Seleccion`}>
-          <div className="personalizado">Personalizado</div>
-        </Link>
+        
       </div>
 
       
