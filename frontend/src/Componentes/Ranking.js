@@ -8,7 +8,9 @@ import { orderBy } from "lodash";
 
 function Ranking() {
   let usuariobj = localStorage.getItem("usuario");
-  let usuario = JSON.parse(usuariobj);
+  if (!usuariobj) {
+    window.location.href = "/login";
+  }
   let i = 0;
   const [Users, setUsers] = useState(null);
 

@@ -60,35 +60,45 @@ exports.list = (req, res) => {
   });
 };
 
-exports.signin = (req, res) => {
-  Usuario.findOne({
-    // Verifica si el nombre de usuario esta en la base de datos
-    nickname: req.body.nickname,
-    password: crypto
-      .pbkdf2Sync(req.body.password, salt, 1000, 64, `sha512`)
-      .toString(`hex`),
-  }).then((user) => {
-    // Si esta, el nombre entonces existe
-    if (user) {
-      const payload = {
-        nickname: user.nickname,
-        password: user.password,
-      };
-      res.send(res.json(user));
+exports.signin = async(req, res) => {
+  const { nickname, password } = req.body;
 
-      const token = jwt.sign({ nickname }, process.env.API_KEY, {
-        expiresIn: process.env.TOKEN_EXPIRES_IN,
+    try {
+      const usuario = await Usuario.findOne({nickname});
+      if( !usuario ){
+        return res.status(400).json({
+          ok: false,
+          msg: 'Usuario no existe.'
+        });
+      }
+
+      const newPassword = crypto
+      .pbkdf2Sync(password, salt, 1000, 64, `sha512`)
+      .toString(`hex`)
+
+      if(newPassword !== usuario.password){
+        return res.status(400).json({
+          ok: false,
+          msg: 'Password incorrecto'
+        });
+      }
+ 
+      res.json({
+        usuario
       });
-    } else {
-      res.send(res.json({ error: "Usuario No Existe" }));
-    }
-  });
-  //res.json({data});
+   
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        ok: false,
+        msg: 'Por favor, hable con el Administrador.'
+      });
+    }  
 };
 
 exports.updateUsuario = async (req, res) => {
   const idUsuario = req.params.authId;
-
+ 
   try {
     const usuario = Usuario.findById(idUsuario);
     if (!usuario) {

@@ -16,8 +16,8 @@
 .microfono{
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
-
 
 .deporteP{
   
@@ -63,12 +63,12 @@
 
 .mensaje{
   color: white;
+  margin-top: 17px;
 }
-
 
 .box img{
   width: 50%;
-  height: auto;
+
 }
 @supports (object-fit: cover) {
   .box img {

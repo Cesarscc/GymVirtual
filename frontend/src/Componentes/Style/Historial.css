@@ -4,11 +4,7 @@
     /*border: 1px solid #f0f0f0;*/
     border-radius: 10px;
     margin-left: 2%;
-}/*
-[data-theme="dark"] .site-calendar-demo-card {
-      border: 5px solid #303030;
-      border: 5px solid red;
-}*/
+}
 .titulo2{
     font-size: 30px;
     color: white;
@@ -33,8 +29,6 @@
     font-size: 20px;
     color: black;
 }
-
-/**/
 .modal{
     margin-top: 180px;
 }
@@ -42,9 +36,17 @@
     text-align: center;
 }
 .logros{
-    height: 120px;
+    height: auto;
     background-color: #FBD348;
     border-radius: 20px;
     text-align: center;
     margin-top: 50px;
+    padding: 5px;
+}
+.exer{
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px;
 }
