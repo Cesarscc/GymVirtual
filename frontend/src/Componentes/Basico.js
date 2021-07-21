@@ -188,9 +188,10 @@ function Basico() {
             ))}
         </div>
       
-
+      <br />
+      <br/>
         <div>
-            <button className="boton" onClick={postRoutine}>
+            <button type="button" class="btn btn-danger" onClick={postRoutine}>
               INICIAR
             </button>
         </div>

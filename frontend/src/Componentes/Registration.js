@@ -183,8 +183,9 @@ const Registration = () => {
               message: "Es necesario ingresar su nombre",
             },
           ]}
+          style={{marginLeft: 20}}
         >
-          <Input />
+          <Input style={{borderRadius: 5}}/>
         </Form.Item>
 
         <Form.Item
@@ -196,8 +197,9 @@ const Registration = () => {
               message: "Es necesario ingresar sus apellidos",
             },
           ]}
+          style={{marginLeft: 20}}
         >
-          <Input />
+          <Input style={{borderRadius:5}}/>
         </Form.Item>
 
         <Form.Item
@@ -217,8 +219,9 @@ const Registration = () => {
               whitespace: true,
             },
           ]}
+          style={{marginLeft: 20}}
         >
-          <Input />
+          <Input style={{borderRadius:5}}/>
         </Form.Item>
 
         <Form.Item
@@ -234,8 +237,9 @@ const Registration = () => {
               message: "¡Por favor, ingrese su email!",
             },
           ]}
+          style={{marginLeft: 20}}
         >
-          <Input />
+          <Input style={{borderRadius: 5}}/>
         </Form.Item>
 
         <Form.Item
@@ -259,6 +263,7 @@ const Registration = () => {
             }),
           ]}
           hasFeedback
+          style={{marginLeft: 20}}
         >
           <Input.Password addonAfter={security} />
         </Form.Item>
@@ -284,8 +289,9 @@ const Registration = () => {
               },
             }),
           ]}
+          style={{marginLeft: 20}}
         >
-          <Input.Password />
+          <Input.Password style={{borderRadius: 5}}/>
         </Form.Item>
 
         <Form.Item
@@ -312,7 +318,7 @@ const Registration = () => {
             htmlType="submit"
             shape="round"
             size="large"
-            style={{ minWidth: 160, background: "#0077E4" }}
+            style={{ minWidth: 160, background: "#0077E4", marginBottom: 10 }}
           >
             Registrarse
           </Button>

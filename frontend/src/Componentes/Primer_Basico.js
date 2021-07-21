@@ -232,7 +232,7 @@ function updateUser(idUsuario, usuario) {
       </div>
 
       <div>
-        <button className="boton" onClick={passPanel}>Siguiente</button>
+        <button type="button" class="btn btn-warning btn-lg" onClick={changeData}>Siguiente</button>
       </div>
 
       <div>

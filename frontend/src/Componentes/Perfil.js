@@ -90,14 +90,14 @@ function Perfil() {
         <Datos recojoData={onChangePassword} info={passw} />
       </div>
 
-      <Button
+      <button type="button" class="btn btn-danger"
         onClick={cerrarSesion}
-        type="primary"
+        
         size="large"
-        className="cerrar"
+        
       >
         CERRAR SESIÓN
-      </Button>
+      </button>
 
       <footer className="foot">
         <Footer />
